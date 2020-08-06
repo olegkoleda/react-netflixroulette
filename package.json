@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --env.NODE_ENV=production",
+    "build:prod": "webpack --env.NODE_ENV=production",
+    "build:dev": "webpack --env.NODE_ENV=development",
     "start": "webpack-dev-server --env.NODE_ENV=development --open",
     "test": "jest --notify"
   },

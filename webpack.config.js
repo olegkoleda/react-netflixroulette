@@ -8,10 +8,10 @@ module.exports = (env) => {
 
   return {
     mode: env.NODE_ENV,
-    devtool: isDevelopment ? 'eval-source-map' : '',
+    devtool: isDevelopment ? 'source-map' : '',
     entry: "./src/index.js",
     output: {
-      path: path.resolve(__dirname, "dist"),
+      path: isDevelopment ? path.resolve(__dirname, "dist") : path.resolve(__dirname, "prod"),
       filename: isDevelopment ? "js/[name].js" : "js/[name].[hash:5].js",
     },
     resolve: {
@@ -49,7 +49,7 @@ module.exports = (env) => {
       new CleanWebpackPlugin(),
       new HtmlWebPackPlugin({ template: "./src/index.html" }),
       new MiniCssExtractPlugin({
-        filename: 'css/[name].[hash:5].css',
+        filename: isDevelopment ? 'css/[name].css' : 'css/[name].[hash:5].css',
       }),
     ],
   };
