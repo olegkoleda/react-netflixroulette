@@ -1,10 +1,11 @@
 import React from "react";
 import { Composition } from "atomic-layout";
+import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./styles/GlobalStyles";
-import styled, { ThemeProvider } from "styled-components";
-import { theme } from './styles/Theme';
-import headerImg from "./assets/header-image.jpg";
-import "./style.scss";
+import { theme } from "./styles/Theme";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Main from "./components/Main";
 
 const mobileAreas = `
   header
@@ -12,35 +13,22 @@ const mobileAreas = `
   footer
 `;
 
-const StyledFooter = styled.div`
-  background: ${props => props.theme.colour.dark};
-  color: ${props => props.theme.colour.light};
-`;
-
-const StyledHeader = styled.div`
-  background-image: url(${headerImg});
-`;
-
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Composition areas={mobileAreas} templateRows="100px 1fr 100px">
-        {({ Header, Main, Footer }) => (
+      <Composition areas={mobileAreas} templateRows="100vh 1fr 4.5rem">
+        {(Areas) => (
           <>
             <GlobalStyle />
-            <Header as="header">
-              <StyledHeader>
-                <h1 className="heading">React intro</h1>
-              </StyledHeader>
-            </Header>
-            <Main>
-              <p>lorem ipsum dolor</p>
-            </Main>
-            <Footer>
-              <StyledFooter>
-                <p>Footer</p>
-              </StyledFooter>
-            </Footer>
+            <Areas.Header>
+              <Header />
+            </Areas.Header>
+            <Areas.Main as="main">
+              <Main />
+            </Areas.Main>
+            <Areas.Footer as="footer">
+              <Footer />
+            </Areas.Footer>
           </>
         )}
       </Composition>

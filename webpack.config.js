@@ -11,7 +11,7 @@ module.exports = (env) => {
     devtool: isDevelopment ? 'source-map' : '',
     entry: "./src/index.tsx",
     output: {
-      path: isDevelopment ? path.resolve(__dirname, "dist") : path.resolve(__dirname, "prod"),
+      path: isDevelopment ? path.resolve(__dirname, "dist/dev") : path.resolve(__dirname, "dist/prod"),
       filename: isDevelopment ? "js/[name].js" : "js/[name].[hash:5].js",
     },
     resolve: {

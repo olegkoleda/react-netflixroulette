@@ -6,21 +6,22 @@ import OpenSansBold from "../fonts/Open_Sans/OpenSans-Bold.ttf";
 export const GlobalStyle = createGlobalStyle`
   ${reset}
   @font-face {
-        font-family: 'OpenSans';
+        font-family: 'Open_Sans';
         src: url(${OpenSansReg}) format('ttf');
         font-weight: 400;
         font-style: normal;
     }
 
   @font-face {
-        font-family: 'OpenSans';
+        font-family: 'Open_Sans';
         src: url(${OpenSansBold}) format('ttf');
         font-weight: 700;
         font-style: normal;
     }
     
     html, body {
-        font-family: OpenSans, Arial, Helvetica, sans-serif;
+        font-family: Open_Sans, Arial, Helvetica, sans-serif;
         font-size: 16px;
+        color: #fff;
     }
 `;
