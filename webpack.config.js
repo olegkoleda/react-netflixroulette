@@ -28,7 +28,7 @@ module.exports = (env) => {
           },
         },
         {
-          test: /\.scss$/,
+          test: /\.(scss|css)$/,
           use: [
             MiniCssExtractPlugin.loader,
             {

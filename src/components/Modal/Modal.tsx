@@ -59,8 +59,8 @@ export const CustomModal = ({
       <CloseButton onClick={toggleModal}>
         <span>+</span>
       </CloseButton>
-      
-      <span>{title ? title : "I am a modal!"}</span>
+
+      <span>{title ? title : ""}</span>
       {children}
     </StyledModal>
   );
