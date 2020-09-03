@@ -1,13 +1,12 @@
 import React from "react";
-import styled from "styled-components";
 import { Composition } from "atomic-layout";
 import Card from "../Card";
 
 const cardProps = {
-  title: "the best movie",
+  title: "Star Wars: The Last Jedi",
   releaseDate: "2014-10-11",
   imageUrl: "https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
-  genre: "fantasy",
+  genre: "Fantasy Adventure Science Fiction",
 };
 const mockData = new Array(6).fill(cardProps);
 

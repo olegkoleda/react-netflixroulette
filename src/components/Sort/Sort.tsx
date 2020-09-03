@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { Box } from "atomic-layout";
 
+interface SortProps {
+  sortValues: Array<string>;
+}
+
 const SelectWrapper = styled.div`
   padding: 0.7rem;
   text-align: right;
@@ -9,7 +13,7 @@ const SelectWrapper = styled.div`
 
 const Label = styled.label`
   margin-right: 1rem;
-  color: ${props => props.theme.colour.grey};
+  color: ${(props) => props.theme.colour.grey};
 `;
 
 const Option = styled.option`
@@ -27,7 +31,7 @@ const Select = styled.select`
   font-size: 1rem;
 `;
 
-export const Sort = () => {
+export const Sort = ({ sortValues }: SortProps) => {
   return (
     <Box
       as={SelectWrapper}
@@ -36,10 +40,10 @@ export const Sort = () => {
       alignItems={"center"}
     >
       <Label htmlFor="sort-by">SORT BY</Label>
-      <Select id="sort-by" defaultValue="RELEASE DATE">
-        <Option>RELEASE DATE</Option>
-        <Option>RATING</Option>
-        <Option>BUDGET</Option>
+      <Select id="sort-by" defaultValue={sortValues[0].toUpperCase()}>
+        {sortValues.map((value) => (
+          <Option key={`sort-${value}`}>{value.toUpperCase()}</Option>
+        ))}
       </Select>
     </Box>
   );

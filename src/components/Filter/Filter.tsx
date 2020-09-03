@@ -1,10 +1,20 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import styled from "styled-components";
-import { Composition } from "atomic-layout";
+import { Box } from "atomic-layout";
 
-const RadioButton = styled.div<{checked?: boolean}>`
+interface FilterType {
+  filter: string;
+  checked: boolean;
+}
+
+interface FilterProps {
+  filters: Array<FilterType>;
+}
+
+const RadioButton = styled.div<{ checked?: boolean }>`
   text-align: center;
   padding: 0.7rem;
+  margin-right: 1.5rem;
   border-bottom: ${(props) =>
     props.checked ? `2px solid ${props.theme.colour.red}` : ""};
 
@@ -31,24 +41,25 @@ const RadioButton = styled.div<{checked?: boolean}>`
     cursor: pointer;
   }
 `;
-export const Filter = () => {
+
+
+export const Filter = ({ filters }: FilterProps) => {
+  const changeValue = (e: ChangeEvent) => {
+    console.log(e.target);
+  };
   return (
-    <Composition
-      templateCols={"repeat(auto-fill, minmax(80px, 1fr))"}
-      gap={"1rem"}
-    >
-      <RadioButton checked>
-        <input defaultChecked type="radio" name="filter" id="filter_all" />
-        <label htmlFor="filter_all">ALL</label>
-      </RadioButton>
-      <RadioButton>
-        <input type="radio" name="filter" id="filter_action" />
-        <label htmlFor="filter_action">ACTION</label>
-      </RadioButton>
-      <RadioButton>
-        <input type="radio" name="filter" id="filter_comedy" />
-        <label htmlFor="filter_comedy">COMEDY</label>
-      </RadioButton>
-    </Composition>
+    <Box flex onChange={changeValue}>
+      {filters.map(({ filter, checked }: FilterType) => (
+        <RadioButton checked={checked} key={`filter_${filter}`}>
+          <input
+            defaultChecked={checked}
+            type="radio"
+            name="filter"
+            id={`filter_${filter}`}
+          />
+          <label htmlFor={`filter_${filter}`}>{filter.toUpperCase()}</label>
+        </RadioButton>
+      ))}
+    </Box>
   );
 };

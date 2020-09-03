@@ -2,6 +2,7 @@ import React from "react";
 import { Composition } from "atomic-layout";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./styles/GlobalStyles";
+import { ModalProvider } from "styled-react-modal";
 import { theme } from "./styles/Theme";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -16,22 +17,24 @@ const mobileAreas = `
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Composition areas={mobileAreas} templateRows="100vh 1fr 4.5rem">
-        {(Areas) => (
-          <>
-            <GlobalStyle />
-            <Areas.Header>
-              <Header />
-            </Areas.Header>
-            <Areas.Main as="main">
-              <Main />
-            </Areas.Main>
-            <Areas.Footer as="footer">
-              <Footer />
-            </Areas.Footer>
-          </>
-        )}
-      </Composition>
+      <ModalProvider>
+        <Composition areas={mobileAreas} templateRows="50vh 1fr 4.5rem">
+          {(Areas) => (
+            <>
+              <GlobalStyle />
+              <Areas.Header>
+                <Header />
+              </Areas.Header>
+              <Areas.Main as="main">
+                <Main />
+              </Areas.Main>
+              <Areas.Footer as="footer">
+                <Footer />
+              </Areas.Footer>
+            </>
+          )}
+        </Composition>
+      </ModalProvider>
     </ThemeProvider>
   );
 }

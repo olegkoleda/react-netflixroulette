@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Box } from "atomic-layout";
 import Logo from "../Logo";
 import Heading from "../Heading";
-import Button from "../Button";
+import AddMovie from "../AddMovie";
 import Search from "../Search";
 import headerImgSrc from "../../assets/header-image.jpg";
 
@@ -48,7 +48,7 @@ export const Header = () => {
         <h1>
           <Logo />
         </h1>
-        <Button feature>+ ADD MOVIE</Button>
+        <AddMovie />
       </Box>
       <Box
         flex

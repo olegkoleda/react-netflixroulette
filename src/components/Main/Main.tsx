@@ -2,8 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import { Composition, Box } from "atomic-layout";
 import Filter from "../Filter";
-import Sort from '../Sort';
-import CardsList from '../CardsList'
+import Sort from "../Sort";
+import CardsList from "../CardsList";
+
+const mockedData = {
+  filters: [
+    { filter: "All", checked: true },
+    { filter: "Documentary", checked: false },
+    { filter: "Comedy", checked: false },
+    { filter: "Horror", checked: false },
+  ],
+  sort: ["Release date", "Rating", "Budget"],
+};
 
 const StyledMain = styled.div`
   height: 100%;
@@ -32,15 +42,17 @@ export const Main = () => (
       {(Areas) => (
         <>
           <Areas.Filter>
-            <Filter />
+            <Filter filters={mockedData.filters} />
           </Areas.Filter>
           <Areas.Sort>
-            <Sort />
+            <Sort sortValues={mockedData.sort} />
           </Areas.Sort>
         </>
       )}
     </Composition>
-    <Results><span>39</span> movies found</Results>
+    <Results>
+      <span>39</span> movies found
+    </Results>
     <CardsList />
   </Box>
 );
