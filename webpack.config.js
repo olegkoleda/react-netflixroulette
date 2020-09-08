@@ -9,26 +9,26 @@ module.exports = (env) => {
   return {
     mode: env.NODE_ENV,
     devtool: isDevelopment ? 'source-map' : '',
-    entry: "./src/index.js",
+    entry: "./src/index.tsx",
     output: {
-      path: isDevelopment ? path.resolve(__dirname, "dist") : path.resolve(__dirname, "prod"),
+      path: isDevelopment ? path.resolve(__dirname, "dist/dev") : path.resolve(__dirname, "dist/prod"),
       filename: isDevelopment ? "js/[name].js" : "js/[name].[hash:5].js",
     },
     resolve: {
       modules: [path.resolve(__dirname, './src'), 'node_modules'],
-      extensions: ['.js', '.jsx']
+      extensions: ['.js', '.ts', '.tsx']
     },
     module: {
       rules: [
         {
-          test: /\.(js|jsx)$/,
+          test: /\.tsx?$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader",
+            loader: "ts-loader",
           },
         },
         {
-          test: /\.scss$/,
+          test: /\.(scss|css)$/,
           use: [
             MiniCssExtractPlugin.loader,
             {
@@ -41,6 +41,18 @@ module.exports = (env) => {
               loader: 'sass-loader',
               options: { sourceMap: isDevelopment },
             },
+          ],
+        },
+        {
+          test: /\.(png|svg|jpg|gif)$/,
+          use: [
+            'file-loader',
+          ],
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
+          use: [
+            'file-loader',
           ],
         },
       ],
