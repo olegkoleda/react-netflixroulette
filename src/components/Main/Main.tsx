@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { StyledMain, StyledResults } from "./styled.main";
 import { Composition, Box } from "atomic-layout";
 import Filter from "../Filter";
 import Sort from "../Sort";
@@ -15,20 +15,6 @@ const mockedData = {
   sort: ["Release date", "Rating", "Budget"],
 };
 
-const StyledMain = styled.div`
-  height: 100%;
-  background: ${(props) => props.theme.colour.black};
-`;
-
-const Results = styled.div`
-  margin: 1.875rem 0;
-  font-size: 1.125rem;
-
-  & span {
-    font-weight: 600;
-  }
-`;
-
 const controlsAreasMd = `filter filter filter sort`;
 
 const controlsAreasMobile = `
@@ -36,7 +22,7 @@ const controlsAreasMobile = `
   sort
 `;
 
-export const Main = () => (
+const Main = () => (
   <Box as={StyledMain} paddingHorizontal={"1rem"} paddingHorizontalMd={"3rem"}>
     <Composition areas={controlsAreasMobile} areasMd={controlsAreasMd}>
       {(Areas) => (
@@ -50,9 +36,11 @@ export const Main = () => (
         </>
       )}
     </Composition>
-    <Results>
+    <StyledResults>
       <span>39</span> movies found
-    </Results>
+    </StyledResults>
     <CardsList />
   </Box>
 );
+
+export default Main;

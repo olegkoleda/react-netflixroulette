@@ -10,7 +10,7 @@ const cardProps = {
 };
 const mockData = new Array(6).fill(cardProps);
 
-export const CardsList = () => {
+const CardsList = () => {
   return (
     <Composition
       templateCols={"repeat(auto-fill, minmax(20rem, 1fr))"}
@@ -23,3 +23,5 @@ export const CardsList = () => {
     </Composition>
   );
 };
+
+export default CardsList;

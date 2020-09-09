@@ -1,2 +1,1 @@
-import { CustomModal } from "./Modal";
-export default CustomModal;
+export { default } from "./Modal";

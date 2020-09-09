@@ -1,2 +1,1 @@
-import { DeleteMovie } from "./DeleteMovie";
-export default DeleteMovie;
+export { default } from "./DeleteMovie";

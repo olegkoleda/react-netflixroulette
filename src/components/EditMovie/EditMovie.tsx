@@ -1,32 +1,22 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import { StyledOptionsButton } from "../DeleteMovie/styled.optionsButton";
 import CustomModal from "../Modal";
 
-export const EditMovie = () => {
+const EditMovie = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleModal() {
     setIsOpen(!isOpen);
   }
 
-  const OptionsButton = styled.button`
-    width: 100%;
-    background: transparent;
-    border: none;
-    padding: 0.5rem;
-    color: ${(props) => props.theme.colour.white};
-
-    &:hover {
-      background: ${(props) => props.theme.colour.red};
-    }
-  `;
-
   return (
     <>
-      <OptionsButton onClick={toggleModal}>EditMovie</OptionsButton>
+      <StyledOptionsButton onClick={toggleModal}>EditMovie</StyledOptionsButton>
       <CustomModal isOpen={isOpen} toggleModal={toggleModal}>
         Edit Movie Fields
       </CustomModal>
     </>
   );
 };
+
+export default EditMovie;

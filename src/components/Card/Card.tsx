@@ -1,63 +1,32 @@
 import React from "react";
-import styled from "styled-components";
 import { Composition, Box } from "atomic-layout";
+import {
+  StyledCard,
+  StyledImage,
+  StyledGenre,
+  StyledImageWrapper,
+  StyledTitle,
+  StyledYear,
+} from "./styled.card";
 import CardOptions from "../CardOptions";
 
-interface CardProps {
+export interface CardProps {
   imageUrl: string;
   title: string;
   genre: string;
   releaseDate: string;
 }
 
-const CardStyle = styled.div`
-  height: 33rem;
-  color: ${(props) => props.theme.colour.grey};
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-`;
-
-const ImageWrapper = styled.div`
-  overflow: hidden;
-  height: 100%;
-  position: relative;
-
-  &:hover {
-    .card-icon {
-      display: block;
-    }
-  }
-`;
-
-const Title = styled.h3`
-  font-size: 1.25rem;
-  font-weight: 600;
-`;
-
-const Year = styled.span`
-  padding: 0.3rem 1rem;
-  border-radius: 0.3125rem;
-  border: 0.0125rem solid ${(props) => props.theme.colour.grey};
-`;
-
-const Genre = styled.span`
-  font-size: 0.875rem;
-`;
-
-export const Card = ({ title, imageUrl, releaseDate, genre }: CardProps) => {
+const Card = ({ title, imageUrl, releaseDate, genre }: CardProps) => {
   const releaseYear = new Date(releaseDate).getFullYear();
   return (
-    <Composition as={CardStyle} templateRows={"28.75rem 1fr"}>
-      <ImageWrapper>
+    <Composition as={StyledCard} templateRows={"28.75rem 1fr"}>
+      <StyledImageWrapper>
         <CardOptions />
         <a href="#">
-          <Image src={imageUrl} alt={title} />
+          <StyledImage src={imageUrl} alt={title} />
         </a>
-      </ImageWrapper>
+      </StyledImageWrapper>
       <div>
         <Box
           flex
@@ -65,11 +34,13 @@ export const Card = ({ title, imageUrl, releaseDate, genre }: CardProps) => {
           marginTop={"1.5rem"}
           marginBottom={"0.5rem"}
         >
-          <Title>{title}</Title>
-          <Year>{releaseYear}</Year>
+          <StyledTitle>{title}</StyledTitle>
+          <StyledYear>{releaseYear}</StyledYear>
         </Box>
-        <Genre>{genre}</Genre>
+        <StyledGenre>{genre}</StyledGenre>
       </div>
     </Composition>
   );
 };
+
+export default Card;

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { StyledBackground, StyledHeaderImage } from "./styled.header";
 import { Box } from "atomic-layout";
 import Logo from "../Logo";
 import Heading from "../Heading";
@@ -7,28 +7,7 @@ import AddMovie from "../AddMovie";
 import Search from "../Search";
 import headerImgSrc from "../../assets/header-image.jpg";
 
-const HeaderImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  filter: blur(4px);
-  z-index: -1;
-`;
-
-const Background = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  background: rgba(0, 0, 0, 0.5);
-`;
-
-export const Header = () => {
+const Header = () => {
   return (
     <Box
       height={"100%"}
@@ -36,8 +15,8 @@ export const Header = () => {
       paddingHorizontalMd={"3rem"}
       paddingVertical={"1rem"}
     >
-      <HeaderImage src={headerImgSrc} alt={""} />
-      <Background />
+      <StyledHeaderImage src={headerImgSrc} alt={""} />
+      <StyledBackground />
       <Box
         flex
         justifyContent={"space-between"}
@@ -66,3 +45,5 @@ export const Header = () => {
     </Box>
   );
 };
+
+export default Header;

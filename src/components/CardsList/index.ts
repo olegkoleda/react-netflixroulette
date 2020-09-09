@@ -1,2 +1,1 @@
-import { CardsList } from "./CardsList";
-export default CardsList;
+export { default } from "./CardsList";

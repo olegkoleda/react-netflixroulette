@@ -1,15 +1,7 @@
 import React from "react";
-import styled from "styled-components";
+import { StyledDots } from "./styled.dots";
 
-const StyledDots = styled.svg`
-  fill: ${(props) => props.theme.colour.white};
-  width: 1.5625rem;
-  height: 1.5625rem;
-  display: inline-block;
-  vertical-align: middle;
-`;
-
-export const DotsIcon = () => {
+const DotsIcon = () => {
   return (
     <StyledDots
       xmlns="http://www.w3.org/2000/svg"
@@ -26,3 +18,5 @@ export const DotsIcon = () => {
     </StyledDots>
   );
 };
+
+export default DotsIcon;

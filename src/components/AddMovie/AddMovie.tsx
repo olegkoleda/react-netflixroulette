@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button";
 import CustomModal from "../Modal";
 
-export const AddMovie = () => {
+const AddMovie = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleModal() {
@@ -20,3 +20,5 @@ export const AddMovie = () => {
     </>
   );
 };
+
+export default AddMovie;
