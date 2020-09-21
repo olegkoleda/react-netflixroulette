@@ -13,13 +13,13 @@ export interface IInputProps {
   placeholder?: string;
   hasError?: boolean;
 }
-const Input: React.FC<IInputProps> = ({ label, type, placeholder }) => (
+const Input: React.FC<IInputProps> = ({ label, type, placeholder, hasError}) => (
   <StyledInputWrapper>
     <StyledLabel>
       {label}
       <StyledInput type={type} placeholder={placeholder} />
     </StyledLabel>
-    <StyledError>Error</StyledError>
+    {hasError && <StyledError>Error</StyledError>}
   </StyledInputWrapper>
 );
 

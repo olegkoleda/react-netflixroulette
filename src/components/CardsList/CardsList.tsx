@@ -17,6 +17,7 @@ const CardsList = () => {
           imageUrl={poster_path}
           releaseDate={release_date}
           title={title}
+          id={id}
         />
       ))}
     </Composition>

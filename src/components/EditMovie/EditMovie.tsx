@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { StyledOptionsButton } from "../DeleteMovie/styled.optionsButton";
 import CustomModal from "../Modal";
+import MovieForm from "../MovieForm";
+import { IMovieId } from "../../interfaces/IMovie";
 
-const EditMovie = () => {
+const EditMovie: React.FC<IMovieId> = ({ id }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleModal() {
@@ -11,13 +13,15 @@ const EditMovie = () => {
 
   return (
     <>
-      <StyledOptionsButton onClick={toggleModal}>Edit movie</StyledOptionsButton>
+      <StyledOptionsButton onClick={toggleModal}>
+        Edit movie
+      </StyledOptionsButton>
       <CustomModal
         title={"Edit movie"}
         isOpen={isOpen}
         toggleModal={toggleModal}
       >
-        Edit Movie Fields
+        <MovieForm movieId={id} />
       </CustomModal>
     </>
   );

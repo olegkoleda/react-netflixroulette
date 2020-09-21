@@ -15,14 +15,15 @@ export interface CardProps {
   title: string;
   genre: string[];
   releaseDate: string;
+  id: number;
 }
 
-const Card = ({ title, imageUrl, releaseDate, genre }: CardProps) => {
+const Card = ({ title, imageUrl, releaseDate, genre, id }: CardProps) => {
   const releaseYear = new Date(releaseDate).getFullYear();
   return (
     <Composition as={StyledCard} templateRows={"28.75rem 1fr"}>
       <StyledImageWrapper>
-        <CardOptions />
+        <CardOptions id={id} />
         <a href="#">
           <StyledImage src={imageUrl} alt={title} />
         </a>
@@ -37,7 +38,7 @@ const Card = ({ title, imageUrl, releaseDate, genre }: CardProps) => {
           <StyledTitle>{title}</StyledTitle>
           <StyledYear>{releaseYear}</StyledYear>
         </Box>
-        <StyledGenre>{genre.join(', ')}</StyledGenre>
+        <StyledGenre>{genre.join(", ")}</StyledGenre>
       </div>
     </Composition>
   );

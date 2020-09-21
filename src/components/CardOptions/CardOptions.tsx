@@ -9,8 +9,9 @@ import EditMovie from "../EditMovie";
 import DeleteMovie from "../DeleteMovie";
 import DotsIcon from "../DotsIcon";
 import "@reach/menu-button/styles.css";
+import { IMovieId } from "../../interfaces/IMovie";
 
-const CardOptions = () => {
+const CardOptions: React.FC<IMovieId> = ({ id }) => {
   return (
     <StyledMenuWrapper>
       <Menu>
@@ -18,8 +19,8 @@ const CardOptions = () => {
           <DotsIcon />
         </StyledMenuButton>
         <StyledMenuList portal={false}>
-          <EditMovie />
-          <DeleteMovie />
+          <EditMovie id={id} />
+          <DeleteMovie id={id} />
         </StyledMenuList>
       </Menu>
     </StyledMenuWrapper>

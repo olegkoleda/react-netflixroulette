@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button";
 import CustomModal from "../Modal";
-import Form from "./AddMovieForm";
+import MovieForm from "../MovieForm";
 
 const AddMovie = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,7 @@ const AddMovie = () => {
         isOpen={isOpen}
         toggleModal={toggleModal}
       >
-        <Form />
+        <MovieForm />
       </CustomModal>
     </>
   );

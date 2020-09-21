@@ -26,3 +26,9 @@ export const StyledError = styled.span`
 export const StyledInputWrapper = styled.div`
   margin-top: 1.2rem;
 `;
+
+export const StyledText = styled.span`
+  margin: 0.875rem 0 0;
+  color: ${(props) => props.theme.colour.white};
+  font-size: 1rem;
+`;

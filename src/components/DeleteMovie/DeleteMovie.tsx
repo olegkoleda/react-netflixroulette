@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { Box } from "atomic-layout";
 import { StyledOptionsButton } from "./styled.optionsButton";
 import CustomModal from "../Modal";
+import { IMovieId } from "../../interfaces/IMovie";
+import Button from "../Button";
 
-const DeleteMovie = () => {
+const DeleteMovie: React.FC<IMovieId> = ({ id }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleModal() {
@@ -19,7 +22,10 @@ const DeleteMovie = () => {
         isOpen={isOpen}
         toggleModal={toggleModal}
       >
-        Delete Movie!
+        <p>Are you sure you want to delete this movie?</p>
+        <Box flex justifyContent={"flex-end"} marginTop={"1rem"}>
+          <Button>Confirm</Button>
+        </Box>
       </CustomModal>
     </>
   );
