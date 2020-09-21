@@ -14,7 +14,11 @@ const DeleteMovie = () => {
       <StyledOptionsButton onClick={toggleModal}>
         Delete movie
       </StyledOptionsButton>
-      <CustomModal isOpen={isOpen} toggleModal={toggleModal}>
+      <CustomModal
+        title={"Delete movie"}
+        isOpen={isOpen}
+        toggleModal={toggleModal}
+      >
         Delete Movie!
       </CustomModal>
     </>

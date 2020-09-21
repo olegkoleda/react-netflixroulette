@@ -17,17 +17,20 @@ const Filter = ({ filters }: FilterProps) => {
   };
   return (
     <Box flex onChange={changeValue}>
-      {filters.map(({ filter, checked }: FilterType) => (
-        <StyledRadioButton checked={checked} key={`filter_${filter}`}>
-          <input
-            defaultChecked={checked}
-            type="radio"
-            name="filter"
-            id={`filter_${filter}`}
-          />
-          <label htmlFor={`filter_${filter}`}>{filter.toUpperCase()}</label>
-        </StyledRadioButton>
-      ))}
+      {filters.map(({ filter, checked }: FilterType) => {
+        const filterId = `filter_${filter}`;
+        return (
+          <StyledRadioButton checked={checked} key={filterId}>
+            <input
+              defaultChecked={checked}
+              type="radio"
+              name="filter"
+              id={filterId}
+            />
+            <label htmlFor={filterId}>{filter.toUpperCase()}</label>
+          </StyledRadioButton>
+        );
+      })}
     </Box>
   );
 };

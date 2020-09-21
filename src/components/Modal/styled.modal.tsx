@@ -6,17 +6,16 @@ export const StyledModal = Modal.styled`
   min-height: 20rem;
   max-height: 80vh;
   overflow-y: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.25rem;
   background-color: #232323;
   transition: opacity ease 500ms;
   position: relative;
+  padding: 3rem;
 `;
 
 export const StyledCloseButton = styled.button`
   position: absolute;
-  top: 1rem;
+  top: 0.5  rem;
   right: 1rem;
   font-size: 3rem;
   cursor: pointer;
@@ -28,4 +27,14 @@ export const StyledCloseButton = styled.button`
     transform: rotate(45deg);
     display: inline-block;
   }
+`;
+
+export const StyledContent = styled.div`
+  margin-top: 2rem;
+  width: 100%;
+`;
+
+export const StyledTitle = styled.h3`
+  font-size: 2rem;
+  margin: 2rem 0;
 `;

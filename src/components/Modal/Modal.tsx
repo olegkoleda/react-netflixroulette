@@ -1,14 +1,18 @@
-import React, { useState, ReactNode } from "react";
-import { StyledCloseButton, StyledModal} from './styled.modal';
+import React, { ReactNode } from "react";
+import {
+  StyledCloseButton,
+  StyledModal,
+  StyledTitle,
+  StyledContent,
+} from "./styled.modal";
 interface IModalProps {
   isOpen: boolean;
   toggleModal: () => void;
   children: ReactNode;
   afterOpen?: () => void;
   beforeClose?: () => void;
-  title?: string;
+  title: string;
 }
-
 
 const CustomModal = ({
   isOpen,
@@ -30,8 +34,8 @@ const CustomModal = ({
         <span>+</span>
       </StyledCloseButton>
 
-      <span>{title|| ""}</span>
-      {children}
+      <StyledTitle>{title.toUpperCase()}</StyledTitle>
+      <StyledContent>{children}</StyledContent>
     </StyledModal>
   );
 };

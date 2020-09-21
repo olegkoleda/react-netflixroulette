@@ -11,8 +11,12 @@ const EditMovie = () => {
 
   return (
     <>
-      <StyledOptionsButton onClick={toggleModal}>EditMovie</StyledOptionsButton>
-      <CustomModal isOpen={isOpen} toggleModal={toggleModal}>
+      <StyledOptionsButton onClick={toggleModal}>Edit movie</StyledOptionsButton>
+      <CustomModal
+        title={"Edit movie"}
+        isOpen={isOpen}
+        toggleModal={toggleModal}
+      >
         Edit Movie Fields
       </CustomModal>
     </>

@@ -13,7 +13,7 @@ import CardOptions from "../CardOptions";
 export interface CardProps {
   imageUrl: string;
   title: string;
-  genre: string;
+  genre: string[];
   releaseDate: string;
 }
 
@@ -37,7 +37,7 @@ const Card = ({ title, imageUrl, releaseDate, genre }: CardProps) => {
           <StyledTitle>{title}</StyledTitle>
           <StyledYear>{releaseYear}</StyledYear>
         </Box>
-        <StyledGenre>{genre}</StyledGenre>
+        <StyledGenre>{genre.join(', ')}</StyledGenre>
       </div>
     </Composition>
   );

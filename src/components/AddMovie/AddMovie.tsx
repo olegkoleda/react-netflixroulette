@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button";
 import CustomModal from "../Modal";
+import Form from "./AddMovieForm";
 
 const AddMovie = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +15,12 @@ const AddMovie = () => {
       <Button feature onClick={toggleModal}>
         + ADD MOVIE
       </Button>
-      <CustomModal isOpen={isOpen} toggleModal={toggleModal}>
-        Add Movie modal
+      <CustomModal
+        title={"Add movie"}
+        isOpen={isOpen}
+        toggleModal={toggleModal}
+      >
+        <Form />
       </CustomModal>
     </>
   );
