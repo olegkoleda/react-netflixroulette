@@ -4,6 +4,12 @@ import { Composition, Box } from "atomic-layout";
 import Filter from "../Filter";
 import Sort from "../Sort";
 import CardsList from "../CardsList";
+import { IMovie } from "../../interfaces/IMovie";
+
+interface IMainProps {
+  movies: IMovie[];
+  changeMovie: Function;
+}
 
 const mockedData = {
   filters: [
@@ -22,7 +28,7 @@ const controlsAreasMobile = `
   sort
 `;
 
-const Main = () => (
+const Main: React.FC<IMainProps> = ({ movies, changeMovie }) => (
   <Box as={StyledMain} paddingHorizontal={"1rem"} paddingHorizontalMd={"3rem"}>
     <Composition areas={controlsAreasMobile} areasMd={controlsAreasMd}>
       {(Areas) => (
@@ -37,9 +43,9 @@ const Main = () => (
       )}
     </Composition>
     <StyledResults>
-      <span>39</span> movies found
+      <span>{movies.length}</span> movies found
     </StyledResults>
-    <CardsList />
+    <CardsList data={movies} changeMovie={changeMovie} />
   </Box>
 );
 

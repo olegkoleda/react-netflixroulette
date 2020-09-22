@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     html, body {
+        scroll-behavior: smooth;
         font-family: Open_Sans, Arial, Helvetica, sans-serif;
         font-size: 16px;
         color: #fff;

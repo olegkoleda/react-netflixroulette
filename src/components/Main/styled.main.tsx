@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledMain = styled.div`
+export const StyledMain = styled.main`
   height: 100%;
   background: ${(props) => props.theme.colour.black};
 `;

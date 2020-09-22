@@ -1,16 +1,20 @@
 import React from "react";
 import { Composition } from "atomic-layout";
 import Card from "../Card";
-import { movies as mockData } from "../../movies";
+import { IMovie } from "../../interfaces/IMovie";
 
-const CardsList = () => {
+interface ICardListProps {
+  data: IMovie[];
+  changeMovie: Function;
+}
+const CardsList: React.FC<ICardListProps> = ({ data, changeMovie }) => {
   return (
     <Composition
       templateCols={"repeat(auto-fill, minmax(20rem, 1fr))"}
       gap={"3.5rem"}
       paddingBottom={"3rem"}
     >
-      {mockData.map(({ id, genres, poster_path, release_date, title }) => (
+      {data.map(({ id, genres, poster_path, release_date, title }) => (
         <Card
           key={id}
           genre={genres}
@@ -18,6 +22,7 @@ const CardsList = () => {
           releaseDate={release_date}
           title={title}
           id={id}
+          changeMovie={changeMovie}
         />
       ))}
     </Composition>

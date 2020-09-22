@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useMemo } from "react";
 import { Composition, Box } from "atomic-layout";
 import {
   StyledCard,
@@ -16,15 +16,29 @@ export interface CardProps {
   genre: string[];
   releaseDate: string;
   id: number;
+  changeMovie: Function;
 }
 
-const Card = ({ title, imageUrl, releaseDate, genre, id }: CardProps) => {
-  const releaseYear = new Date(releaseDate).getFullYear();
+const Card: React.FC<CardProps> = ({
+  title,
+  imageUrl,
+  releaseDate,
+  genre,
+  id,
+  changeMovie,
+}) => {
+  const releaseYear = useMemo(() => new Date(releaseDate).getFullYear(), [
+    releaseDate,
+  ]);
+
+  const selectFilm = useCallback(() => {
+    changeMovie(id);
+  }, [id]);
   return (
     <Composition as={StyledCard} templateRows={"28.75rem 1fr"}>
       <StyledImageWrapper>
         <CardOptions id={id} />
-        <a href="#">
+        <a href="#" onClick={selectFilm}>
           <StyledImage src={imageUrl} alt={title} />
         </a>
       </StyledImageWrapper>

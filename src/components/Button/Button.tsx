@@ -1,10 +1,10 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import { StyledButton } from "./styled.button";
 export interface ButtonProps {
   secondary?: boolean;
   feature?: boolean;
   children?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 const Button = (props: ButtonProps) => (
