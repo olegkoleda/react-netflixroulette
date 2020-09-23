@@ -7,11 +7,11 @@ import {
 } from "./styled.sort";
 import { Box } from "atomic-layout";
 
-interface SortProps {
+interface ISortProps {
   sortValues: Array<string>;
 }
 
-const Sort = ({ sortValues }: SortProps) => {
+const Sort = ({ sortValues }: ISortProps) => {
   return (
     <Box
       as={StyledSelectWrapper}

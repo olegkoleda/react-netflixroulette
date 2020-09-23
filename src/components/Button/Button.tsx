@@ -1,13 +1,13 @@
 import React from "react";
 import { StyledButton } from "./styled.button";
-export interface ButtonProps {
+export interface IButtonProps {
   secondary?: boolean;
   feature?: boolean;
-  children?: string;
+  children?: React.ReactNode;
   onClick?: (e: React.MouseEvent) => void;
 }
 
-const Button = (props: ButtonProps) => (
+const Button = (props: IButtonProps) => (
   <StyledButton {...props}>{props.children}</StyledButton>
 );
 

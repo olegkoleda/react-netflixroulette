@@ -26,6 +26,6 @@ export const StyledTagLine = styled.span`
 
 export const StyledAccent = styled.span`
   font-size: 1.5rem;
-  color: ${(props) => props.theme.colour.red};
+  color: ${(props) => props.theme.color.red};
   margin-right: 2rem;
 `;

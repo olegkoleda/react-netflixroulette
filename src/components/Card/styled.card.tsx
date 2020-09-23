@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledCard = styled.div`
   height: 33rem;
-  color: ${(props) => props.theme.colour.grey};
+  color: ${(props) => props.theme.color.grey};
 `;
 
 export const StyledImage = styled.img`
@@ -31,7 +31,7 @@ export const StyledTitle = styled.h3`
 export const StyledYear = styled.span`
   padding: 0.3rem 1rem;
   border-radius: 0.3125rem;
-  border: 0.0125rem solid ${(props) => props.theme.colour.grey};
+  border: 0.0125rem solid ${(props) => props.theme.color.grey};
 `;
 
 export const StyledGenre = styled.span`

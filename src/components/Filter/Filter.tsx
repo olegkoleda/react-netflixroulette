@@ -2,22 +2,22 @@ import React, { ChangeEvent } from "react";
 import { StyledRadioButton } from "./styled.radioButton";
 import { Box } from "atomic-layout";
 
-interface FilterType {
+interface IFilterType {
   filter: string;
   checked: boolean;
 }
 
-interface FilterProps {
-  filters: Array<FilterType>;
+interface IFilterProps {
+  filters: Array<IFilterType>;
 }
 
-const Filter = ({ filters }: FilterProps) => {
+const Filter = ({ filters }: IFilterProps) => {
   const changeValue = (e: ChangeEvent) => {
     console.log(e.target);
   };
   return (
     <Box flex onChange={changeValue}>
-      {filters.map(({ filter, checked }: FilterType) => {
+      {filters.map(({ filter, checked }: IFilterType) => {
         const filterId = `filter_${filter}`;
         return (
           <StyledRadioButton checked={checked} key={filterId}>

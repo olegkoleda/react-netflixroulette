@@ -11,11 +11,11 @@ export const StyledMenuButton = styled(MenuButton)`
   border: none;
   cursor: pointer;
   display: none;
-  background: ${(props) => props.theme.colour.black};
+  background: ${(props) => props.theme.color.black};
 `;
 
 export const StyledMenuList = styled(MenuList)`
-  background: ${(props) => props.theme.colour.black};
+  background: ${(props) => props.theme.color.black};
   position: absolute;
   top: 1rem;
   right: 1rem;

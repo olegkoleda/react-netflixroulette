@@ -10,7 +10,7 @@ import {
 } from "./styled.card";
 import CardOptions from "../CardOptions";
 
-export interface CardProps {
+export interface ICardProps {
   imageUrl: string;
   title: string;
   genre: string[];
@@ -19,7 +19,7 @@ export interface CardProps {
   changeMovie: Function;
 }
 
-const Card: React.FC<CardProps> = ({
+const Card: React.FC<ICardProps> = ({
   title,
   imageUrl,
   releaseDate,
@@ -34,6 +34,7 @@ const Card: React.FC<CardProps> = ({
   const selectFilm = useCallback(() => {
     changeMovie(id);
   }, [id]);
+
   return (
     <Composition as={StyledCard} templateRows={"28.75rem 1fr"}>
       <StyledImageWrapper>
@@ -52,7 +53,7 @@ const Card: React.FC<CardProps> = ({
           <StyledTitle>{title}</StyledTitle>
           <StyledYear>{releaseYear}</StyledYear>
         </Box>
-        <StyledGenre>{genre.join(", ")}</StyledGenre>
+        <StyledGenre>{genre.join(", ").trim()}</StyledGenre>
       </div>
     </Composition>
   );

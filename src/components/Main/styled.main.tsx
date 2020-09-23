@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledMain = styled.main`
   height: 100%;
-  background: ${(props) => props.theme.colour.black};
+  background: ${(props) => props.theme.color.black};
 `;
 
 export const StyledResults = styled.div`

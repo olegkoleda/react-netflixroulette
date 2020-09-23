@@ -5,7 +5,7 @@ export const StyledRadioButton = styled.div<{ checked?: boolean }>`
   padding: 0.7rem;
   margin-right: 1.5rem;
   border-bottom: ${(props) =>
-    props.checked ? `2px solid ${props.theme.colour.red}` : ""};
+    props.checked ? `2px solid ${props.theme.color.red}` : ""};
 
   input[type="radio"] {
     padding: 0;
@@ -20,7 +20,7 @@ export const StyledRadioButton = styled.div<{ checked?: boolean }>`
 
     &:focus {
       + label {
-        outline: 0.125rem solid ${(props) => props.theme.colour.white};
+        outline: 0.125rem solid ${(props) => props.theme.color.white};
         outline-offset: 0.25rem;
       }
     }

@@ -1,4 +1,10 @@
-import React, { SetStateAction, useEffect, useState } from "react";
+import React, {
+  SetStateAction,
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+} from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import Main from "../Main";
@@ -25,13 +31,17 @@ const defaultMovie = {
 const ContentContainer: React.FC = () => {
   const [movieId, setMovieId] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
-  const activeMovie = mockData.find(({ id }) => id === movieId) || defaultMovie;
+  // const activeMovie = mockData.find(({ id }) => id === movieId) || defaultMovie;
+  const activeMovie = useMemo(
+    () => mockData.find(({ id }) => id === movieId) || defaultMovie,
+    [movieId]
+  );
 
   useEffect(() => {
     document.title = showDetails ? activeMovie.title : "NetflixRoulette";
   }, [showDetails, activeMovie]);
 
-  const changeMovie = (id: React.SetStateAction<null>) => {
+  const changeMovie = (id: SetStateAction<null>) => {
     setMovieId(id);
     setShowDetails(true);
   };

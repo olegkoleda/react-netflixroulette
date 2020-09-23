@@ -15,11 +15,11 @@ export const StyledModal = Modal.styled`
 
 export const StyledCloseButton = styled.button`
   position: absolute;
-  top: 0.5  rem;
+  top: 0.5 rem;
   right: 1rem;
   font-size: 3rem;
   cursor: pointer;
-  color: ${(props) => props.theme.colour.white};
+  color: ${(props) => props.theme.color.white};
   background: transparent;
   border: none;
 

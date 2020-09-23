@@ -4,7 +4,7 @@ const Heading = styled.h3`
   font-size: 3rem;
   letter-spacing: 0.3125rem;
   font-variant: all-petite-caps;
-  color: ${(props) => props.theme.colour.white};
+  color: ${(props) => props.theme.color.white};
 `;
 
 export default Heading;

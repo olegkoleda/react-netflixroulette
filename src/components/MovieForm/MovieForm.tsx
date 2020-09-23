@@ -17,13 +17,11 @@ const MovieForm: React.FC<IFormProps> = ({ movieId }) => {
 
   return (
     <div>
-      {movieId ? (
+      {movieId ?? (
         <StyledLabel>
           {"Movie ID"}
           <StyledText>{movieId}</StyledText>
         </StyledLabel>
-      ) : (
-        false
       )}
       <Input label="Title" placeholder="Select Title" />
       <Input type="date" label="Release date" placeholder="Select Date" />

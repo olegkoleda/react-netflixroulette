@@ -5,9 +5,9 @@ export const StyledOptionsButton = styled.button`
   background: transparent;
   border: none;
   padding: 0.5rem;
-  color: ${(props) => props.theme.colour.white};
+  color: ${(props) => props.theme.color.white};
 
   &:hover {
-    background: ${(props) => props.theme.colour.red};
+    background: ${(props) => props.theme.color.red};
   }
 `;

@@ -1,13 +1,13 @@
-interface Colors {
+interface IColors {
   [key: string]: string;
 }
 
-interface ThemeType {
-  colour: Colors;
+interface IThemeType {
+  color: IColors;
 }
 
-export const theme: ThemeType = {
-  colour: {
+export const theme: IThemeType = {
+  color: {
     red: "#F65261",
     white: "#FFF",
     black: "#232323",
