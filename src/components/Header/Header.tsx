@@ -1,5 +1,9 @@
-import React, { useCallback } from "react";
-import { StyledBackground, StyledHeaderImage } from "./styled.header";
+import React, { useCallback, useMemo, useState } from "react";
+import {
+  StyledBackground,
+  StyledHeaderImage,
+  StyledHeaderWrapper,
+} from "./styled.header";
 import { Box } from "atomic-layout";
 import Logo from "../Logo";
 import Heading from "../Heading";
@@ -17,16 +21,31 @@ interface IHeaderProps {
 }
 
 const Header: React.FC<IHeaderProps> = ({ showDetails, movie, changeView }) => {
+  const [headerHeight, setHeaderHeight] = useState(50);
+
+  let height = useMemo(() => `${headerHeight}vh`, [headerHeight]);
+
+  const onEnter = () => {
+    showDetails && setHeaderHeight(70);
+  };
+
+  const onLeave = () => {
+    setHeaderHeight(50);
+  };
+
   const closeDetails = useCallback(() => {
     changeView(false);
   }, [showDetails]);
+
   return (
     <Box
-      as={"header"}
-      height={"100%"}
+      as={StyledHeaderWrapper}
+      height={height}
       paddingHorizontal={"1rem"}
       paddingHorizontalMd={"3rem"}
       paddingVertical={"1rem"}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
     >
       <StyledHeaderImage src={headerImgSrc} alt={""} />
       <StyledBackground />

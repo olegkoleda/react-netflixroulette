@@ -20,3 +20,8 @@ export const StyledBackground = styled.div`
   z-index: -1;
   background: rgba(0, 0, 0, 0.5);
 `;
+
+export const StyledHeaderWrapper = styled.div`
+  overflow: hidden;
+  transition: height 1s;
+`;

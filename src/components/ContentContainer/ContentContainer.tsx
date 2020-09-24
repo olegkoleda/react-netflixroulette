@@ -8,7 +8,7 @@ import React, {
 import Header from "../Header";
 import Footer from "../Footer";
 import Main from "../Main";
-import { Composition } from "atomic-layout";
+import { Box, Composition } from "atomic-layout";
 import { movies as mockData } from "../../movies";
 
 const defaultMovie = {
@@ -31,7 +31,6 @@ const defaultMovie = {
 const ContentContainer: React.FC = () => {
   const [movieId, setMovieId] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
-  // const activeMovie = mockData.find(({ id }) => id === movieId) || defaultMovie;
   const activeMovie = useMemo(
     () => mockData.find(({ id }) => id === movieId) || defaultMovie,
     [movieId]
@@ -47,7 +46,7 @@ const ContentContainer: React.FC = () => {
   };
 
   return (
-    <Composition templateRows="50vh 1fr 4.5rem">
+    <Box >
       <Header
         showDetails={showDetails}
         movie={activeMovie}
@@ -55,7 +54,7 @@ const ContentContainer: React.FC = () => {
       />
       <Main movies={mockData} changeMovie={changeMovie} />
       <Footer />
-    </Composition>
+    </Box>
   );
 };
 

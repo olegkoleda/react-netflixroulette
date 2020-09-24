@@ -4,7 +4,7 @@ import { Box } from "atomic-layout";
 import Logo from "../Logo";
 
 const Footer = () => (
-  <Box as={StyledFooter} flex justifyContent="center" alignItems="center">
+  <Box as={StyledFooter} flex justifyContent="center" alignItems="center" height="4.5rem">
     <Logo />
   </Box>
 );
