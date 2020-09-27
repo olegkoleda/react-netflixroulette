@@ -1,2 +1,1 @@
-import { AddMovie } from "./AddMovie";
-export default AddMovie;
+export { default } from "./AddMovie";

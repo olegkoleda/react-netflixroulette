@@ -1,2 +1,2 @@
-import { CardOptions } from "./CardOptions";
-export default CardOptions;
+export  { default } from "./CardOptions";
+

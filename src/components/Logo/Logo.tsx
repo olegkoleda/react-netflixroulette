@@ -1,21 +1,15 @@
 import React from "react";
-import styled from "styled-components";
+import { StyledLogo } from "./styled.logo";
 
-const LogoFirsPart = styled.span`
-  font-weight: 800;
-  font-size: 1.5rem;
-  color: ${(props) => props.theme.colour.red};
-`;
+export interface IProps {
+  fontWeight: number;
+}
 
-const LogoSecondPart = styled.span`
-  font-weight: 400;
-  font-size: 1.5rem;
-  color: ${(props) => props.theme.colour.red};
-`;
-
-export const Logo = () => (
+const Logo = () => (
   <span>
-    <LogoFirsPart>netflix</LogoFirsPart>
-    <LogoSecondPart>roulette</LogoSecondPart>
+    <StyledLogo fontWeight={800}>netflix</StyledLogo>
+    <StyledLogo fontWeight={400}>roulette</StyledLogo>
   </span>
 );
+
+export default Logo;

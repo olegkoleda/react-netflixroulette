@@ -8,7 +8,7 @@ interface IProps {
   children: ReactNode;
 }
 
-export class ErrorBoundary extends React.Component<IProps, IState> {
+class ErrorBoundary extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = { hasError: false };
@@ -16,6 +16,10 @@ export class ErrorBoundary extends React.Component<IProps, IState> {
 
   static getDerivedStateFromError(error: Error) {
     return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, errorInfo: Object) {
+    console.error(error, errorInfo);
   }
 
   render() {
@@ -26,3 +30,5 @@ export class ErrorBoundary extends React.Component<IProps, IState> {
     return this.props.children;
   }
 }
+
+export default ErrorBoundary;

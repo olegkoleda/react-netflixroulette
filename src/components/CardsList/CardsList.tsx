@@ -1,25 +1,32 @@
 import React from "react";
 import { Composition } from "atomic-layout";
 import Card from "../Card";
+import { IMovie } from "../../interfaces/IMovie";
 
-const cardProps = {
-  title: "Star Wars: The Last Jedi",
-  releaseDate: "2014-10-11",
-  imageUrl: "https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
-  genre: "Fantasy Adventure Science Fiction",
-};
-const mockData = new Array(6).fill(cardProps);
-
-export const CardsList = () => {
+interface ICardListProps {
+  data: IMovie[];
+  changeMovie: Function;
+}
+const CardsList: React.FC<ICardListProps> = ({ data, changeMovie }) => {
   return (
     <Composition
       templateCols={"repeat(auto-fill, minmax(20rem, 1fr))"}
       gap={"3.5rem"}
       paddingBottom={"3rem"}
     >
-      {mockData.map((card, key) => (
-        <Card key={key} {...card} />
+      {data.map(({ id, genres, poster_path, release_date, title }) => (
+        <Card
+          key={id}
+          genre={genres}
+          imageUrl={poster_path}
+          releaseDate={release_date}
+          title={title}
+          id={id}
+          changeMovie={changeMovie}
+        />
       ))}
     </Composition>
   );
 };
+
+export default CardsList;

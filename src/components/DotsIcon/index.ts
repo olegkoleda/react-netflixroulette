@@ -1,2 +1,1 @@
-import { DotsIcon } from "./DotsIcon";
-export default DotsIcon;
+export { default } from "./DotsIcon";

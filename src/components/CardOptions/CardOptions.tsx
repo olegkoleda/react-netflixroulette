@@ -1,40 +1,17 @@
 import React from "react";
-import { Menu, MenuList, MenuButton } from "@reach/menu-button";
-import styled from "styled-components";
+import { Menu } from "@reach/menu-button";
+import {
+  StyledMenuButton,
+  StyledMenuList,
+  StyledMenuWrapper,
+} from "./styled.cardOptions";
 import EditMovie from "../EditMovie";
 import DeleteMovie from "../DeleteMovie";
 import DotsIcon from "../DotsIcon";
 import "@reach/menu-button/styles.css";
+import { IMovieId } from "../../interfaces/IMovie";
 
-const StyledMenuButton = styled(MenuButton)`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  display: none;
-  background: ${(props) => props.theme.colour.black};
-`;
-
-const StyledMenuList = styled(MenuList)`
-  background: ${(props) => props.theme.colour.black};
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  display: flex;
-  flex-direction: column;
-`;
-
-const StyledMenuWrapper = styled.div`
-  & [data-reach-menu] {
-    position: static;
-  }
-`;
-
-export const CardOptions = () => {
+const CardOptions: React.FC<IMovieId> = ({ id }) => {
   return (
     <StyledMenuWrapper>
       <Menu>
@@ -42,10 +19,12 @@ export const CardOptions = () => {
           <DotsIcon />
         </StyledMenuButton>
         <StyledMenuList portal={false}>
-          <EditMovie />
-          <DeleteMovie />
+          <EditMovie id={id} />
+          <DeleteMovie id={id} />
         </StyledMenuList>
       </Menu>
     </StyledMenuWrapper>
   );
 };
+
+export default CardOptions;

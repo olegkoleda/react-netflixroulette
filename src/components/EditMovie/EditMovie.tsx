@@ -1,32 +1,21 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
+import { StyledOptionsButton } from "../DeleteMovie/styled.optionsButton";
 import CustomModal from "../Modal";
+import MovieForm from "../MovieForm";
+import { IMovieId } from "../../interfaces/IMovie";
+import { useToggle } from "../../hooks/useToggle";
 
-export const EditMovie = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function toggleModal() {
-    setIsOpen(!isOpen);
-  }
-
-  const OptionsButton = styled.button`
-    width: 100%;
-    background: transparent;
-    border: none;
-    padding: 0.5rem;
-    color: ${(props) => props.theme.colour.white};
-
-    &:hover {
-      background: ${(props) => props.theme.colour.red};
-    }
-  `;
+const EditMovie: React.FC<IMovieId> = ({ id }) => {
+  const [isOpen, setIsOpen] = useToggle(false);
 
   return (
     <>
-      <OptionsButton onClick={toggleModal}>EditMovie</OptionsButton>
-      <CustomModal isOpen={isOpen} toggleModal={toggleModal}>
-        Edit Movie Fields
+      <StyledOptionsButton onClick={setIsOpen}>Edit movie</StyledOptionsButton>
+      <CustomModal title={"Edit movie"} isOpen={isOpen} toggleModal={setIsOpen}>
+        <MovieForm movieId={id} />
       </CustomModal>
     </>
   );
 };
+
+export default EditMovie;

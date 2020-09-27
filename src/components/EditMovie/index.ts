@@ -1,2 +1,1 @@
-import { EditMovie } from "./EditMovie";
-export default EditMovie
+export { default } from "./EditMovie";

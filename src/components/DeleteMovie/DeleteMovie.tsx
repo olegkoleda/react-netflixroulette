@@ -1,32 +1,31 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
+import { Box } from "atomic-layout";
+import { StyledOptionsButton } from "./styled.optionsButton";
 import CustomModal from "../Modal";
+import { IMovieId } from "../../interfaces/IMovie";
+import Button from "../Button";
+import { useToggle } from "../../hooks/useToggle";
 
-export const DeleteMovie = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function toggleModal() {
-    setIsOpen(!isOpen);
-  }
-
-  const OptionsButton = styled.button`
-    width: 100%;
-    background: transparent;
-    border: none;
-    padding: 0.5rem;
-    color: ${(props) => props.theme.colour.white};
-
-    &:hover {
-      background: ${(props) => props.theme.colour.red};
-    }
-  `;
+const DeleteMovie: React.FC<IMovieId> = ({ id }) => {
+  const [isOpen, setIsOpen] = useToggle(false);
 
   return (
     <>
-      <OptionsButton onClick={toggleModal}>Delete movie</OptionsButton>
-      <CustomModal isOpen={isOpen} toggleModal={toggleModal}>
-        Delete Movie!
+      <StyledOptionsButton onClick={setIsOpen}>
+        Delete movie
+      </StyledOptionsButton>
+      <CustomModal
+        title={"Delete movie"}
+        isOpen={isOpen}
+        toggleModal={setIsOpen}
+      >
+        <p>Are you sure you want to delete this movie?</p>
+        <Box flex justifyContent={"flex-end"} marginTop={"1rem"}>
+          <Button>Confirm</Button>
+        </Box>
       </CustomModal>
     </>
   );
 };
+
+export default DeleteMovie;

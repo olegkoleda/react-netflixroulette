@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import Button from "../Button";
 import CustomModal from "../Modal";
+import MovieForm from "../MovieForm";
+import { useToggle } from "../../hooks/useToggle";
 
-export const AddMovie = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function toggleModal() {
-    setIsOpen(!isOpen);
-  }
+const AddMovie = () => {
+  const [isOpen, setIsOpen] = useToggle(false);
 
   return (
     <>
-      <Button feature onClick={toggleModal}>
+      <Button feature onClick={setIsOpen}>
         + ADD MOVIE
       </Button>
-      <CustomModal isOpen={isOpen} toggleModal={toggleModal}>
-        Add Movie modal
+      <CustomModal title={"Add movie"} isOpen={isOpen} toggleModal={setIsOpen}>
+        <MovieForm />
       </CustomModal>
     </>
   );
 };
+
+export default AddMovie;
