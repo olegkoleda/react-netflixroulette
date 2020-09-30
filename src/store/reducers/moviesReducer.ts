@@ -13,7 +13,13 @@ import {
   ADD_MOVIE_FINISHED,
   AddMovieActionType,
 } from "../types/addMovie";
-import { IMovie } from "../../interfaces/IMovie";
+import {
+  DELETE_MOVIE_ERROR,
+  DELETE_MOVIE_STARTED,
+  DELETE_MOVIE_SUCCESS,
+  DeleteMovieActionType,
+} from "../types/deleteMovie";
+import { IMovie, IMovieId } from "../../interfaces/IMovie";
 
 export interface IMoviesState {
   movies: IMovie[];
@@ -33,10 +39,16 @@ const initialState: IMoviesState = {
 
 export default function moviesReducer(
   state = initialState,
-  action: LoadMovieActionType | ISetActiveMovie | AddMovieActionType
+  action:
+    | LoadMovieActionType
+    | ISetActiveMovie
+    | AddMovieActionType
+    | DeleteMovieActionType
 ) {
   switch (action.type) {
     case LOAD_MOVIES_STARTED:
+    case ADD_MOVIE_STARTED:
+    case DELETE_MOVIE_STARTED:
       return {
         ...state,
         loading: true,
@@ -48,6 +60,8 @@ export default function moviesReducer(
         movies: action.payload,
       };
     case LOAD_MOVIES_ERROR:
+    case ADD_MOVIE_ERROR:
+    case DELETE_MOVIE_ERROR:
       return {
         ...state,
         error: action.error,
@@ -56,11 +70,6 @@ export default function moviesReducer(
       return {
         ...state,
         activeMovie: action.payload,
-      };
-    case ADD_MOVIE_STARTED:
-      return {
-        ...state,
-        loading: true,
       };
     case ADD_MOVIE_FINISHED:
       return {
@@ -74,10 +83,11 @@ export default function moviesReducer(
         isMovieAdded: true,
         movies: [action.payload, ...state.movies],
       };
-    case ADD_MOVIE_ERROR:
+    case DELETE_MOVIE_SUCCESS:
       return {
         ...state,
-        error: action.error,
+        loading: false,
+        movies: state.movies.filter(({ id }) => id !== action.payload),
       };
     default:
       return state;

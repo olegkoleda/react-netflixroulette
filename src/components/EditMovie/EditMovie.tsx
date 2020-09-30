@@ -12,7 +12,7 @@ const EditMovie: React.FC<IMovieId> = ({ id }) => {
     <>
       <StyledOptionsButton onClick={setIsOpen}>Edit movie</StyledOptionsButton>
       <CustomModal title={"Edit movie"} isOpen={isOpen} toggleModal={setIsOpen}>
-        <MovieForm movieId={id} />
+        <MovieForm movieId={id} callback={() => {}} />
       </CustomModal>
     </>
   );
