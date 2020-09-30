@@ -8,7 +8,6 @@ import { IMovie } from "../../interfaces/IMovie";
 
 interface IMainProps {
   movies: IMovie[];
-  changeMovie: Function;
 }
 
 const mockedData = {
@@ -28,7 +27,7 @@ const controlsAreasMobile = `
   sort
 `;
 
-const Main: React.FC<IMainProps> = ({ movies, changeMovie }) => (
+const Main: React.FC<IMainProps> = ({ movies }) => (
   <Box as={StyledMain} paddingHorizontal={"1rem"} paddingHorizontalMd={"3rem"}>
     <Composition areas={controlsAreasMobile} areasMd={controlsAreasMd}>
       {(Areas) => (
@@ -45,7 +44,7 @@ const Main: React.FC<IMainProps> = ({ movies, changeMovie }) => (
     <StyledResults>
       <span>{movies.length}</span> movies found
     </StyledResults>
-    <CardsList data={movies} changeMovie={changeMovie} />
+    <CardsList data={movies} />
   </Box>
 );
 

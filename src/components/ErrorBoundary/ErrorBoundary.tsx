@@ -20,6 +20,7 @@ class ErrorBoundary extends React.Component<IProps, IState> {
 
   componentDidCatch(error: Error, errorInfo: Object) {
     console.error(error, errorInfo);
+    this.setState({ hasError: true });
   }
 
   render() {

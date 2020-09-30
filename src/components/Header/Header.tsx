@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
+import { connect } from "react-redux";
 import {
   StyledBackground,
   StyledHeaderImage,
@@ -13,20 +14,22 @@ import MovieDetails from "../MovieDetails";
 import headerImgSrc from "../../assets/header-image.jpg";
 import { IMovie } from "../../interfaces/IMovie";
 import Button from "../Button";
+import { getMovie } from "../../store/selectors";
+import { IMoviesState } from "../../store/reducers/moviesReducer";
+import { setActiveMovie } from "../../store/actions/loadMovies";
 
 interface IHeaderProps {
-  showDetails: boolean;
   movie: IMovie;
   changeView: Function;
 }
 
-const Header: React.FC<IHeaderProps> = ({ showDetails, movie, changeView }) => {
+const Header: React.FC<IHeaderProps> = ({ movie, changeView }) => {
   const [headerHeight, setHeaderHeight] = useState(50);
 
   let height = useMemo(() => `${headerHeight}vh`, [headerHeight]);
 
   const onEnter = () => {
-    showDetails && setHeaderHeight(70);
+    movie && setHeaderHeight(70);
   };
 
   const onLeave = () => {
@@ -34,8 +37,8 @@ const Header: React.FC<IHeaderProps> = ({ showDetails, movie, changeView }) => {
   };
 
   const closeDetails = useCallback(() => {
-    changeView(false);
-  }, [showDetails]);
+    changeView(null);
+  }, [movie]);
 
   return (
     <Box
@@ -59,13 +62,13 @@ const Header: React.FC<IHeaderProps> = ({ showDetails, movie, changeView }) => {
         <h1>
           <Logo />
         </h1>
-        {showDetails ? (
+        {movie ? (
           <Button onClick={closeDetails}>Back to search</Button>
         ) : (
           <AddMovie />
         )}
       </Box>
-      {showDetails ? (
+      {movie ? (
         <MovieDetails data={movie} />
       ) : (
         <Box
@@ -86,4 +89,12 @@ const Header: React.FC<IHeaderProps> = ({ showDetails, movie, changeView }) => {
   );
 };
 
-export default Header;
+const mapState = (state: IMoviesState) => ({
+  movie: getMovie(state.movies, state.activeMovie),
+});
+
+const mapDispatch = {
+  changeView: (id: number | null) => setActiveMovie(id),
+};
+
+export default connect(mapState, mapDispatch)(Header);

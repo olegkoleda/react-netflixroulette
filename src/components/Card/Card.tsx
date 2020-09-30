@@ -1,4 +1,6 @@
 import React, { useCallback, useMemo } from "react";
+import { connect } from "react-redux";
+import { setActiveMovie } from "../../store/actions/loadMovies";
 import { Composition, Box } from "atomic-layout";
 import {
   StyledCard,
@@ -16,7 +18,7 @@ export interface ICardProps {
   genre: string[];
   releaseDate: string;
   id: number;
-  changeMovie: Function;
+  setActiveMovie: Function;
 }
 
 const Card: React.FC<ICardProps> = ({
@@ -25,14 +27,14 @@ const Card: React.FC<ICardProps> = ({
   releaseDate,
   genre,
   id,
-  changeMovie,
+  setActiveMovie,
 }) => {
   const releaseYear = useMemo(() => new Date(releaseDate).getFullYear(), [
     releaseDate,
   ]);
 
   const selectFilm = useCallback(() => {
-    changeMovie(id);
+    setActiveMovie(id);
   }, [id]);
 
   return (
@@ -59,4 +61,8 @@ const Card: React.FC<ICardProps> = ({
   );
 };
 
-export default Card;
+const mapDispatch = {
+  setActiveMovie: (id: number) => setActiveMovie(id),
+};
+
+export default connect(null, mapDispatch)(Card);
