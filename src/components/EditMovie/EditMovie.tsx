@@ -59,7 +59,7 @@ const mapDispatch = {
 
 const mapState = (state: IAppState, props: IMovieId) => ({
   movie: getMovie(state.movies.list, props.id),
-  isMovieAddedProp: state.movies.isMovieOperationFinished,
+  isMovieAddedProp: state.movies.isMovieUpdated,
 });
 
 export default connect(mapState, mapDispatch)(EditMovie);

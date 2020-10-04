@@ -31,9 +31,10 @@ import {
 export interface IMoviesState {
   list: IMovie[];
   loading: boolean;
-  isMovieOperationFinished: boolean;
+  isMovieUpdated: boolean;
   error: Error | null;
   activeMovie: number | null;
+  isMovieAdded: boolean;
 }
 
 const initialState: IMoviesState = {
@@ -41,7 +42,8 @@ const initialState: IMoviesState = {
   loading: false,
   error: null,
   activeMovie: null,
-  isMovieOperationFinished: false,
+  isMovieUpdated: false,
+  isMovieAdded: false,
 };
 
 export default function moviesReducer(
@@ -81,17 +83,21 @@ export default function moviesReducer(
         ...state,
         activeMovie: action.payload,
       };
-    case ADD_MOVIE_FINISHED:
     case UPDATE_MOVIE_FINISHED:
       return {
         ...state,
-        isMovieOperationFinished: false,
+        isMovieUpdated: false,
+      };
+    case ADD_MOVIE_FINISHED:
+      return {
+        ...state,
+        isMovieAdded: false,
       };
     case ADD_MOVIE_SUCCESS:
       return {
         ...state,
         loading: false,
-        isMovieOperationFinished: true,
+        isMovieAdded: true,
         list: [action.payload, ...state.list],
       };
     case DELETE_MOVIE_SUCCESS:
@@ -104,7 +110,7 @@ export default function moviesReducer(
       return {
         ...state,
         loading: false,
-        isMovieOperationFinished: true,
+        isMovieUpdated: true,
         list: state.list.map((movie) =>
           movie.id === action.payload.id ? action.payload : movie
         ),

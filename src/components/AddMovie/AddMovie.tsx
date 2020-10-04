@@ -8,6 +8,7 @@ import { IMovie } from "../../interfaces/IMovie";
 import { connect } from "react-redux";
 import { IMoviesState } from "../../store/reducers/moviesReducer";
 import MovieAdded from "../MovieAdded";
+import { IAppState } from "../../store/reducers/rootReducer";
 
 interface IAddMovieProps {
   addMovieProp: Function;
@@ -48,8 +49,8 @@ const mapDispatch = {
   addMovieFinishProp: () => addMovieFinished(),
 };
 
-const mapState = (state: IMoviesState) => ({
-  isMovieAddedProp: state.isMovieOperationFinished,
+const mapState = (state: IAppState) => ({
+  isMovieAddedProp: state.movies.isMovieAdded,
 });
 
 export default connect(mapState, mapDispatch)(AddMovie);
