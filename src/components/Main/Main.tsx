@@ -12,10 +12,10 @@ interface IMainProps {
 
 const mockedData = {
   filters: [
-    { filter: "All", checked: true },
-    { filter: "Documentary", checked: false },
-    { filter: "Comedy", checked: false },
-    { filter: "Horror", checked: false },
+    { value: "", label: "All" },
+    { value: "Documentary", label: "Documentary" },
+    { value: "Comedy", label: "Comedy" },
+    { value: "Horror", label: "Horror" },
   ],
   sort: ["Release date", "Rating", "Budget"],
 };

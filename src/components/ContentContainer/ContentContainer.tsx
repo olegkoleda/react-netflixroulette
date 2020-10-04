@@ -5,7 +5,7 @@ import Footer from "../Footer";
 import Main from "../Main";
 import { Box } from "atomic-layout";
 import { IMovie } from "../../interfaces/IMovie";
-import { IMoviesState } from "../../store/reducers/moviesReducer";
+import { IAppState } from "../../store/reducers/rootReducer";
 import { loadMovies } from "../../store/actions/loadMovies";
 import { getMovie } from "../../store/selectors";
 
@@ -37,9 +37,9 @@ const ContentContainer: React.FC<IProps> = ({
   );
 };
 
-const mapStateToProps = (state: IMoviesState) => ({
-  movies: state.movies,
-  activeMovie: getMovie(state.movies, state.activeMovie),
+const mapStateToProps = (state: IAppState) => ({
+  movies: state.movies.list,
+  activeMovie: getMovie(state.movies.list, state.movies.activeMovie),
 });
 
 const mapDispatchToProps = {

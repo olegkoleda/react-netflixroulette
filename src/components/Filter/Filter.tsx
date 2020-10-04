@@ -1,33 +1,49 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { StyledRadioButton } from "./styled.radioButton";
 import { Box } from "atomic-layout";
+import { IAppState } from "../../store/reducers/rootReducer";
+import { connect } from "react-redux";
+import { filterMovie } from "../../store/actions/filterMovie";
+import { loadMovies } from "../../store/actions/loadMovies";
 
 interface IFilterType {
-  filter: string;
-  checked: boolean;
+  value: string;
+  label: string;
 }
 
 interface IFilterProps {
   filters: Array<IFilterType>;
+  activeFilter: string;
+  setFilter: Function;
+  loadMoviesProp: Function;
 }
 
-const Filter = ({ filters }: IFilterProps) => {
-  const changeValue = (e: ChangeEvent) => {
-    console.log(e.target);
+const Filter: React.FC<IFilterProps> = ({
+  filters,
+  activeFilter,
+  setFilter,
+  loadMoviesProp,
+}) => {
+  const changeValue = (e: ChangeEvent<HTMLInputElement>) => {
+    setFilter(e.target.value);
+    loadMoviesProp();
   };
+
   return (
     <Box flex onChange={changeValue}>
-      {filters.map(({ filter, checked }: IFilterType) => {
-        const filterId = `filter_${filter}`;
+      {filters.map(({ label, value }: IFilterType) => {
+        const checked = value === activeFilter;
+        const filterId = `filter_${label}`;
         return (
           <StyledRadioButton checked={checked} key={filterId}>
             <input
               defaultChecked={checked}
               type="radio"
               name="filter"
+              value={value}
               id={filterId}
             />
-            <label htmlFor={filterId}>{filter.toUpperCase()}</label>
+            <label htmlFor={filterId}>{label.toUpperCase()}</label>
           </StyledRadioButton>
         );
       })}
@@ -35,4 +51,13 @@ const Filter = ({ filters }: IFilterProps) => {
   );
 };
 
-export default Filter;
+const mapState = (state: IAppState) => ({
+  activeFilter: state.params.filter,
+});
+
+const mapDispatch = {
+  setFilter: (filter: string) => filterMovie(filter),
+  loadMoviesProp: () => loadMovies(),
+};
+
+export default connect(mapState, mapDispatch)(Filter);

@@ -12,11 +12,20 @@ import { AppDispatch } from "../store";
 
 const API_URL = "http://localhost:4000";
 
-export const loadMovies = () => (dispatch: AppDispatch) => {
+export const loadMovies = () => (dispatch: AppDispatch, getState: Function) => {
+  const state = getState();
+
+  
+  const params = {
+    sortBy: state.params.sortBy,
+    sortOrder: "desc",
+    filter: state.params.filter,
+  };
+
   dispatch(loadMoviesStarted());
 
   axios
-    .get(`${API_URL}/movies`, { params: {} })
+    .get(`${API_URL}/movies`, { params })
     .then((response) => dispatch(loadMoviesSuccess(response.data.data)))
     .catch((err) => dispatch(loadMoviesError(err)));
 };

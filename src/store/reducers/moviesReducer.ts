@@ -29,7 +29,7 @@ import {
 } from "../types/updateMovie";
 
 export interface IMoviesState {
-  movies: IMovie[];
+  list: IMovie[];
   loading: boolean;
   isMovieOperationFinished: boolean;
   error: Error | null;
@@ -37,7 +37,7 @@ export interface IMoviesState {
 }
 
 const initialState: IMoviesState = {
-  movies: [],
+  list: [],
   loading: false,
   error: null,
   activeMovie: null,
@@ -66,7 +66,7 @@ export default function moviesReducer(
       return {
         ...state,
         loading: false,
-        movies: action.payload,
+        list: action.payload,
       };
     case LOAD_MOVIES_ERROR:
     case ADD_MOVIE_ERROR:
@@ -92,20 +92,20 @@ export default function moviesReducer(
         ...state,
         loading: false,
         isMovieOperationFinished: true,
-        movies: [action.payload, ...state.movies],
+        list: [action.payload, ...state.list],
       };
     case DELETE_MOVIE_SUCCESS:
       return {
         ...state,
         loading: false,
-        movies: state.movies.filter(({ id }) => id !== action.payload),
+        list: state.list.filter(({ id }) => id !== action.payload),
       };
     case UPDATE_MOVIE_SUCCESS:
       return {
         ...state,
         loading: false,
         isMovieOperationFinished: true,
-        movies: state.movies.map((movie) =>
+        list: state.list.map((movie) =>
           movie.id === action.payload.id ? action.payload : movie
         ),
       };

@@ -4,7 +4,7 @@ import CustomModal from "../Modal";
 import MovieForm from "../MovieForm";
 import { IMovie, IMovieId } from "../../interfaces/IMovie";
 import { useToggle } from "../../hooks/useToggle";
-import { IMoviesState } from "../../store/reducers/moviesReducer";
+import { IAppState } from "../../store/reducers/rootReducer";
 import { connect } from "react-redux";
 import {
   updateMovie,
@@ -57,9 +57,9 @@ const mapDispatch = {
   updateMovieFinishProp: () => updateMovieFinished(),
 };
 
-const mapState = (state: IMoviesState, props: IMovieId) => ({
-  movie: getMovie(state.movies, props.id),
-  isMovieAddedProp: state.isMovieOperationFinished,
+const mapState = (state: IAppState, props: IMovieId) => ({
+  movie: getMovie(state.movies.list, props.id),
+  isMovieAddedProp: state.movies.isMovieOperationFinished,
 });
 
 export default connect(mapState, mapDispatch)(EditMovie);

@@ -15,7 +15,7 @@ import headerImgSrc from "../../assets/header-image.jpg";
 import { IMovie } from "../../interfaces/IMovie";
 import Button from "../Button";
 import { getMovie } from "../../store/selectors";
-import { IMoviesState } from "../../store/reducers/moviesReducer";
+import { IAppState } from "../../store/reducers/rootReducer";
 import { setActiveMovie } from "../../store/actions/loadMovies";
 
 interface IHeaderProps {
@@ -89,8 +89,8 @@ const Header: React.FC<IHeaderProps> = ({ movie, changeView }) => {
   );
 };
 
-const mapState = (state: IMoviesState) => ({
-  movie: getMovie(state.movies, state.activeMovie),
+const mapState = (state: IAppState) => ({
+  movie: getMovie(state.movies.list, state.movies.activeMovie),
 });
 
 const mapDispatch = {
