@@ -19,12 +19,19 @@ import {
   DELETE_MOVIE_SUCCESS,
   DeleteMovieActionType,
 } from "../types/deleteMovie";
-import { IMovie, IMovieId } from "../../interfaces/IMovie";
+import { IMovie } from "../../interfaces/IMovie";
+import {
+  UPDATE_MOVIE_ERROR,
+  UPDATE_MOVIE_STARTED,
+  UPDATE_MOVIE_SUCCESS,
+  UpdateMovieActionType,
+  UPDATE_MOVIE_FINISHED,
+} from "../types/updateMovie";
 
 export interface IMoviesState {
   movies: IMovie[];
   loading: boolean;
-  isMovieAdded: boolean;
+  isMovieOperationFinished: boolean;
   error: Error | null;
   activeMovie: number | null;
 }
@@ -34,7 +41,7 @@ const initialState: IMoviesState = {
   loading: false,
   error: null,
   activeMovie: null,
-  isMovieAdded: false,
+  isMovieOperationFinished: false,
 };
 
 export default function moviesReducer(
@@ -44,11 +51,13 @@ export default function moviesReducer(
     | ISetActiveMovie
     | AddMovieActionType
     | DeleteMovieActionType
+    | UpdateMovieActionType
 ) {
   switch (action.type) {
     case LOAD_MOVIES_STARTED:
     case ADD_MOVIE_STARTED:
     case DELETE_MOVIE_STARTED:
+    case UPDATE_MOVIE_STARTED:
       return {
         ...state,
         loading: true,
@@ -62,6 +71,7 @@ export default function moviesReducer(
     case LOAD_MOVIES_ERROR:
     case ADD_MOVIE_ERROR:
     case DELETE_MOVIE_ERROR:
+    case UPDATE_MOVIE_ERROR:
       return {
         ...state,
         error: action.error,
@@ -72,15 +82,16 @@ export default function moviesReducer(
         activeMovie: action.payload,
       };
     case ADD_MOVIE_FINISHED:
+    case UPDATE_MOVIE_FINISHED:
       return {
         ...state,
-        isMovieAdded: false,
+        isMovieOperationFinished: false,
       };
     case ADD_MOVIE_SUCCESS:
       return {
         ...state,
         loading: false,
-        isMovieAdded: true,
+        isMovieOperationFinished: true,
         movies: [action.payload, ...state.movies],
       };
     case DELETE_MOVIE_SUCCESS:
@@ -88,6 +99,15 @@ export default function moviesReducer(
         ...state,
         loading: false,
         movies: state.movies.filter(({ id }) => id !== action.payload),
+      };
+    case UPDATE_MOVIE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isMovieOperationFinished: true,
+        movies: state.movies.map((movie) =>
+          movie.id === action.payload.id ? action.payload : movie
+        ),
       };
     default:
       return state;

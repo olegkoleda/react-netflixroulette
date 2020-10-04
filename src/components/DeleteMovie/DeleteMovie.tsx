@@ -2,7 +2,6 @@ import React, { useCallback } from "react";
 import { Box } from "atomic-layout";
 import { StyledOptionsButton } from "./styled.optionsButton";
 import CustomModal from "../Modal";
-import { IMovieId } from "../../interfaces/IMovie";
 import Button from "../Button";
 import { useToggle } from "../../hooks/useToggle";
 import { deleteMovie } from "../../store/actions/deleteMovie";
