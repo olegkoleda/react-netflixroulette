@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useCallback, useState } from "react";
 import { StyledRadioButton } from "./styled.radioButton";
 import { Box } from "atomic-layout";
 import { IAppState } from "../../store/reducers/rootReducer";
@@ -24,10 +24,10 @@ const Filter: React.FC<IFilterProps> = ({
   setFilter,
   loadMoviesProp,
 }) => {
-  const changeValue = (e: ChangeEvent<HTMLInputElement>) => {
+  const changeValue = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setFilter(e.target.value);
     loadMoviesProp();
-  };
+  }, []);
 
   return (
     <Box flex onChange={changeValue}>

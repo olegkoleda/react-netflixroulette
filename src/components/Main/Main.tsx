@@ -17,7 +17,11 @@ const mockedData = {
     { value: "Comedy", label: "Comedy" },
     { value: "Horror", label: "Horror" },
   ],
-  sort: ["Release date", "Rating", "Budget"],
+  sort: [
+    { value: "release_date", label: "Release date" },
+    { value: "rating", label: "Rating" },
+    { value: "budget", label: "Budget" },
+  ],
 };
 
 const controlsAreasMd = `filter filter filter sort`;

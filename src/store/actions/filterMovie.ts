@@ -1,5 +1,5 @@
 import { AppDispatch } from "../store";
-import { FilterMovieActionType, SET_MOVIE_FILTER } from "../types/filterMovie";
+import { FilterMovieActionType, SET_MOVIE_FILTER } from "../types/filterMovies";
 
 export const filterMovie = (filter: string) => (dispatch: AppDispatch) => {
   dispatch(setMovieFilter(filter));
