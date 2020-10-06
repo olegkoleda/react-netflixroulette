@@ -23,18 +23,24 @@ interface IHeaderProps {
   changeView: Function;
 }
 
+const HEADER_HEIGHT = {
+  OPENED: 70,
+  CLOSED: 50,
+};
+
 const Header: React.FC<IHeaderProps> = ({ movie, changeView }) => {
-  const [headerHeight, setHeaderHeight] = useState(50);
+  const [headerHeight, setHeaderHeight] = useState(HEADER_HEIGHT.CLOSED);
+  const showDetails = useMemo(() => !!movie, [movie]);
 
   let height = useMemo(() => `${headerHeight}vh`, [headerHeight]);
 
-  const onEnter = () => {
-    movie && setHeaderHeight(70);
-  };
+  const onEnter = useCallback(() => {
+    movie && setHeaderHeight(HEADER_HEIGHT.OPENED);
+  }, [movie]);
 
-  const onLeave = () => {
-    setHeaderHeight(50);
-  };
+  const onLeave = useCallback(() => {
+    setHeaderHeight(HEADER_HEIGHT.CLOSED);
+  }, [movie]);
 
   const closeDetails = useCallback(() => {
     changeView(null);
@@ -62,13 +68,13 @@ const Header: React.FC<IHeaderProps> = ({ movie, changeView }) => {
         <h1>
           <Logo />
         </h1>
-        {movie ? (
+        {showDetails ? (
           <Button onClick={closeDetails}>Back to search</Button>
         ) : (
           <AddMovie />
         )}
       </Box>
-      {movie ? (
+      {showDetails ? (
         <MovieDetails data={movie} />
       ) : (
         <Box
@@ -90,7 +96,7 @@ const Header: React.FC<IHeaderProps> = ({ movie, changeView }) => {
 };
 
 const mapState = (state: IAppState) => ({
-  movie: getMovie(state.movies.list, state.movies.activeMovie),
+  movie: getMovie(state),
 });
 
 const mapDispatch = {

@@ -1,5 +1,8 @@
-import { IMovie } from "../interfaces/IMovie";
+import { IAppState } from "./reducers/rootReducer";
 
-export const getMovie = (movies: IMovie[], movieId: number | null) => {
-  return movies.find(({ id }) => id === movieId) || null;
+export const getMovie = (
+  state: IAppState,
+  movieId = state.movies.activeMovie
+) => {
+  return state.movies.list.find(({ id }) => id === movieId) || null;
 };

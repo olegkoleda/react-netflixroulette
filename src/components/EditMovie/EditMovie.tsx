@@ -14,7 +14,7 @@ import { getMovie } from "../../store/selectors";
 
 interface IEditMovieProps {
   movie: IMovie;
-  updateMovieProp: Function;
+  updateMovieProp: (data: IMovie) => void;
   updateMovieFinishProp: Function;
   isMovieAddedProp: boolean;
 }
@@ -46,7 +46,7 @@ const EditMovie: React.FC<IEditMovieProps> = ({
         isOpen={isOpen}
         toggleModal={closeModal}
       >
-        <MovieForm movieData={movie} callback={updateMovieProp} />
+        <MovieForm movieData={movie} submitCallback={updateMovieProp} />
       </CustomModal>
     </>
   );
@@ -58,7 +58,7 @@ const mapDispatch = {
 };
 
 const mapState = (state: IAppState, props: IMovieId) => ({
-  movie: getMovie(state.movies.list, props.id),
+  movie: getMovie(state, props.id),
   isMovieAddedProp: state.movies.isMovieUpdated,
 });
 

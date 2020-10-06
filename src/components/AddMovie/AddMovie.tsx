@@ -11,13 +11,13 @@ import MovieAdded from "../MovieAdded";
 import { IAppState } from "../../store/reducers/rootReducer";
 
 interface IAddMovieProps {
-  addMovieProp: Function;
+  addMovieHandler: (data: IMovie) => void;
   addMovieFinishProp: Function;
   isMovieAddedProp: boolean;
 }
 
 const AddMovie: React.FC<IAddMovieProps> = ({
-  addMovieProp,
+  addMovieHandler,
   addMovieFinishProp,
   isMovieAddedProp,
 }) => {
@@ -37,7 +37,7 @@ const AddMovie: React.FC<IAddMovieProps> = ({
         {isMovieAddedProp ? (
           <MovieAdded />
         ) : (
-          <MovieForm callback={addMovieProp} />
+          <MovieForm submitCallback={addMovieHandler} />
         )}
       </CustomModal>
     </>
@@ -45,7 +45,7 @@ const AddMovie: React.FC<IAddMovieProps> = ({
 };
 
 const mapDispatch = {
-  addMovieProp: (data: IMovie) => addMovie(data),
+  addMovieHandler: (data: IMovie) => addMovie(data),
   addMovieFinishProp: () => addMovieFinished(),
 };
 

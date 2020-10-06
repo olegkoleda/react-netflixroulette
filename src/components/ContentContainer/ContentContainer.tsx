@@ -39,7 +39,7 @@ const ContentContainer: React.FC<IProps> = ({
 
 const mapStateToProps = (state: IAppState) => ({
   movies: state.movies.list,
-  activeMovie: getMovie(state.movies.list, state.movies.activeMovie),
+  activeMovie: getMovie(state),
 });
 
 const mapDispatchToProps = {

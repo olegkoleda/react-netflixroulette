@@ -9,7 +9,7 @@ import { IMovie } from "../../interfaces/IMovie";
 
 interface IFormProps {
   movieData?: IMovie;
-  callback: Function;
+  submitCallback: Function;
 }
 const options = [
   { label: "Drama", value: "Drama" },
@@ -33,7 +33,7 @@ const options = [
   { label: "TV Movie", value: "TV Movie" },
 ];
 
-const MovieForm: React.FC<IFormProps> = ({ movieData, callback }) => {
+const MovieForm: React.FC<IFormProps> = ({ movieData, submitCallback }) => {
   const selectedGenres =
     useMemo(() => movieData?.genres.map((value) => ({ label: value, value })), [
       movieData,
@@ -73,7 +73,7 @@ const MovieForm: React.FC<IFormProps> = ({ movieData, callback }) => {
         genres,
       };
 
-      callback(formData);
+      submitCallback(formData);
     },
     [title, date, url, overview, runtime, genres]
   );
@@ -93,13 +93,11 @@ const MovieForm: React.FC<IFormProps> = ({ movieData, callback }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {movieData?.id ? (
+      {movieData?.id && (
         <StyledLabel>
           {"Movie ID"}
           <StyledText>{movieData?.id}</StyledText>
         </StyledLabel>
-      ) : (
-        false
       )}
       <Input label="Title" placeholder="Select Title" {...bindTitle} />
       <Input
