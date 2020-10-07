@@ -1,6 +1,5 @@
-import axios from "axios";
 import { AppDispatch } from "../store";
-import { IMovieId } from "../../interfaces/IMovie";
+import { api } from "../movies.service";
 import {
   DELETE_MOVIE_ERROR,
   DELETE_MOVIE_STARTED,
@@ -8,15 +7,18 @@ import {
   DeleteMovieActionType,
 } from "../types/deleteMovie";
 
-const API_URL = "http://localhost:4000";
 
-export const deleteMovie = (movieId: number) => (dispatch: AppDispatch) => {
+export const deleteMovie = (movieId: number) => async (
+  dispatch: AppDispatch
+) => {
   dispatch(deleteMovieStarted());
 
-  axios
-    .delete(`${API_URL}/movies/${movieId}`)
-    .then(() => dispatch(deleteMovieSuccess(movieId)))
-    .catch((err) => dispatch(deleteMovieError(err)));
+  try {
+    await api.deleteMovie(movieId);
+    dispatch(deleteMovieSuccess(movieId));
+  } catch (error) {
+    dispatch(deleteMovieError(error));
+  }
 };
 
 const deleteMovieStarted = (): DeleteMovieActionType => ({

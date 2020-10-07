@@ -1,6 +1,6 @@
-import axios from "axios";
 import { AppDispatch } from "../store";
 import { IMovie } from "../../interfaces/IMovie";
+import { api } from "../movies.service";
 import {
   ADD_MOVIE_ERROR,
   ADD_MOVIE_STARTED,
@@ -9,15 +9,17 @@ import {
   ADD_MOVIE_FINISHED,
 } from "../types/addMovie";
 
-const API_URL = "http://localhost:4000";
-
-export const addMovie = (movieData: IMovie) => (dispatch: AppDispatch) => {
+export const addMovie = (movieData: IMovie) => async (
+  dispatch: AppDispatch
+) => {
   dispatch(addMovieStarted());
 
-  axios
-    .post(`${API_URL}/movies`, movieData)
-    .then((response) => dispatch(addMovieSuccess(response.data)))
-    .catch((err) => dispatch(addMovieError(err)));
+  try {
+    const response = await api.addMovie(movieData);
+    dispatch(addMovieSuccess(response.data));
+  } catch (error) {
+    dispatch(addMovieError(error));
+  }
 };
 
 export const addMovieFinished = (): AddMovieActionType => ({

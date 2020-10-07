@@ -1,4 +1,4 @@
-import axios from "axios";
+import { api } from "../movies.service";
 import { IMovie } from "../../interfaces/IMovie";
 import {
   ISetActiveMovie,
@@ -10,24 +10,27 @@ import {
 } from "../types/loadMovies";
 import { AppDispatch } from "../store";
 
-const API_URL = "http://localhost:4000";
-
-export const loadMovies = () => (dispatch: AppDispatch, getState: Function) => {
+export const loadMovies = () => async (
+  dispatch: AppDispatch,
+  getState: Function
+) => {
   const state = getState();
 
-  
   const params = {
     sortBy: state.params.sortBy,
     sortOrder: "desc",
     filter: state.params.filter,
+    limit: 20,
   };
 
   dispatch(loadMoviesStarted());
 
-  axios
-    .get(`${API_URL}/movies`, { params })
-    .then((response) => dispatch(loadMoviesSuccess(response.data.data)))
-    .catch((err) => dispatch(loadMoviesError(err)));
+  try {
+    const response = await api.loadMovies(params);
+    dispatch(loadMoviesSuccess(response.data.data));
+  } catch (error) {
+    dispatch(loadMoviesError(error));
+  }
 };
 
 const loadMoviesStarted = (): LoadMovieActionType => ({
