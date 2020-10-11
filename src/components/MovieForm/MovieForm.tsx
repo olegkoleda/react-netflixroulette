@@ -1,16 +1,26 @@
 import React, { useCallback, useMemo, useState } from "react";
+import { Formik, FormikProps, Form, validateYupSchema } from "formik";
 import Input from "../Input";
 import Select from "../Select";
 import Button from "../Button";
 import { StyledLabel, StyledText } from "../Input/styled.input";
-import { useInput } from "../../hooks/useInput";
 import { Box } from "atomic-layout";
 import { IMovie } from "../../interfaces/IMovie";
+import * as Yup from "yup";
 
 interface IFormProps {
   movieData?: IMovie;
   submitCallback: Function;
 }
+
+interface IFormValues {
+  title: string;
+  release_date: string;
+  poster_path: string;
+  overview: string;
+  runtime: number;
+}
+
 const options = [
   { label: "Drama", value: "Drama" },
   { label: "Romance", value: "Romance" },
@@ -33,6 +43,16 @@ const options = [
   { label: "TV Movie", value: "TV Movie" },
 ];
 
+const MovieSchema = Yup.object().shape({
+  title: Yup.string().required("Required!"),
+  release_date: Yup.date().required("Required!"),
+  poster_path: Yup.string().url("Not URL").required("Required!"),
+  overview: Yup.string().required("Required!"),
+  runtime: Yup.number()
+    .positive("Must be a positive number")
+    .required("Required!"),
+});
+
 const MovieForm: React.FC<IFormProps> = ({ movieData, submitCallback }) => {
   const selectedGenres =
     useMemo(() => movieData?.genres.map((value) => ({ label: value, value })), [
@@ -40,95 +60,74 @@ const MovieForm: React.FC<IFormProps> = ({ movieData, submitCallback }) => {
     ]) || [];
 
   const [selected, setSelected] = useState(selectedGenres);
-  const { value: title, bind: bindTitle, reset: resetTitle } = useInput(
-    movieData?.title || ""
-  );
-  const { value: date, bind: bindDate, reset: resetDate } = useInput(
-    movieData?.release_date || ""
-  );
-  const { value: url, bind: bindUrl, reset: resetUrl } = useInput(
-    movieData?.poster_path || ""
-  );
-  const { value: runtime, bind: bindRuntime, reset: resetRuntime } = useInput(
-    "" + movieData?.runtime || ""
-  );
-  const {
-    value: overview,
-    bind: bindOverview,
-    reset: resetOverview,
-  } = useInput(movieData?.overview || "");
 
   const genres = useMemo(() => selected.map(({ value }) => value), [selected]);
 
-  const handleSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      const formData = {
-        ...movieData,
-        title,
-        release_date: date,
-        poster_path: url,
-        overview,
-        runtime: +runtime,
-        genres,
-      };
-
-      submitCallback(formData);
-    },
-    [title, date, url, overview, runtime, genres]
-  );
-
-  const handleReset = useCallback(
-    (e) => {
-      e.preventDefault();
-      resetTitle();
-      resetDate();
-      resetUrl();
-      resetRuntime();
-      resetOverview();
-      setSelected([]);
-    },
-    [resetTitle, resetDate, resetUrl, resetRuntime, resetOverview, setSelected]
-  );
-
   return (
-    <form onSubmit={handleSubmit}>
-      {movieData?.id && (
-        <StyledLabel>
-          {"Movie ID"}
-          <StyledText>{movieData?.id}</StyledText>
-        </StyledLabel>
+    <Formik
+      initialValues={{
+        title: movieData?.title || "",
+        release_date: movieData?.release_date || "",
+        poster_path: movieData?.poster_path || "",
+        overview: movieData?.overview || "",
+        runtime: movieData?.runtime || "",
+      }}
+      validationSchema={MovieSchema}
+      onSubmit={(values) => {
+        const formData = {
+          ...movieData,
+          genres,
+          ...values,
+        };
+        console.log(formData);
+
+        submitCallback(formData);
+      }}
+    >
+      {(props: FormikProps<IFormValues>) => (
+        <Form>
+          {movieData?.id && (
+            <StyledLabel>
+              {"Movie ID"}
+              <StyledText>{movieData?.id}</StyledText>
+            </StyledLabel>
+          )}
+          <Input name="title" label="Title" placeholder="Select Title"/>
+          <Input
+            name="release_date"
+            type="date"
+            label="Release date"
+            placeholder="Select Date"
+          />
+          <Input
+            name="poster_path"
+            label="movie URL"
+            placeholder="Movie URL here"
+          />
+          <Select
+            options={options}
+            selected={selected}
+            setSelected={setSelected}
+            label={"Genre"}
+            placeholder={"Select Genre"}
+            search={true}
+          />
+          <Input name="overview" label="Overview" placeholder="Overview here" />
+          <Input
+            name="runtime"
+            label="Runtime"
+            placeholder="Runtime here"
+            type={"number"}
+          />
+          <Box flex justifyContent={"space-between"} marginTop={"2rem"}>
+            <Button secondary onClick={props.resetForm}>
+              Reset
+            </Button>
+            <Button>Submit</Button>
+          </Box>
+        </Form>
       )}
-      <Input label="Title" placeholder="Select Title" {...bindTitle} />
-      <Input
-        type="date"
-        label="Release date"
-        placeholder="Select Date"
-        {...bindDate}
-      />
-      <Input label="movie URL" placeholder="Movie URL here" {...bindUrl} />
-      <Select
-        options={options}
-        selected={selected}
-        setSelected={setSelected}
-        label={"Genre"}
-        placeholder={"Select Genre"}
-        search={true}
-      />
-      <Input label="Overview" placeholder="Overview here" {...bindOverview} />
-      <Input
-        label="Runtime"
-        placeholder="Runtime here"
-        type={"number"}
-        {...bindRuntime}
-      />
-      <Box flex justifyContent={"space-between"} marginTop={"2rem"}>
-        <Button secondary onClick={handleReset}>
-          Reset
-        </Button>
-        <Button>Submit</Button>
-      </Box>
-    </form>
+    </Formik>
   );
 };
 

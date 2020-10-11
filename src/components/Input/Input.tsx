@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import { useField } from "formik";
 import {
   StyledError,
   StyledInput,
@@ -7,34 +8,23 @@ import {
 } from "./styled.input";
 
 export interface IInputProps {
-  children?: ReactElement;
+  name: string;
   label?: string;
   type?: string;
   placeholder?: string;
   hasError?: boolean;
-  value: string | number;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const Input: React.FC<IInputProps> = ({
-  label,
-  type,
-  placeholder,
-  hasError,
-  value,
-  onChange,
-}) => (
-  <StyledInputWrapper>
-    <StyledLabel>
-      {label}
-      <StyledInput
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-      />
-    </StyledLabel>
-    {hasError && <StyledError>Error</StyledError>}
-  </StyledInputWrapper>
-);
+const Input: React.FC<IInputProps> = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
+  return (
+    <StyledInputWrapper>
+      <StyledLabel>
+        {label}
+        <StyledInput {...field} {...props} hasError={!!(meta.touched && meta.error)}/>
+      </StyledLabel>
+      {meta.touched && meta.error && <StyledError>{meta.error}</StyledError>}
+    </StyledInputWrapper>
+  );
+};
 
 export default Input;
