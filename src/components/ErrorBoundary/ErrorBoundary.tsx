@@ -4,6 +4,8 @@ interface IState {
   hasError: boolean;
 }
 
+import StyledError from "./styled.error";
+
 interface IProps {
   children: ReactNode;
 }
@@ -24,7 +26,7 @@ class ErrorBoundary extends React.Component<IProps, IState> {
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+      return <StyledError>Something went wrong.</StyledError>;
     }
 
     return this.props.children;

@@ -12,12 +12,26 @@ export interface IInputProps {
   type?: string;
   placeholder?: string;
   hasError?: boolean;
+  value: string | number;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const Input: React.FC<IInputProps> = ({ label, type, placeholder, hasError}) => (
+const Input: React.FC<IInputProps> = ({
+  label,
+  type,
+  placeholder,
+  hasError,
+  value,
+  onChange,
+}) => (
   <StyledInputWrapper>
     <StyledLabel>
       {label}
-      <StyledInput type={type} placeholder={placeholder} />
+      <StyledInput
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+      />
     </StyledLabel>
     {hasError && <StyledError>Error</StyledError>}
   </StyledInputWrapper>

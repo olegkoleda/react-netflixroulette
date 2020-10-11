@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
+import { connect } from "react-redux";
 import {
   StyledBackground,
   StyledHeaderImage,
@@ -13,29 +14,37 @@ import MovieDetails from "../MovieDetails";
 import headerImgSrc from "../../assets/header-image.jpg";
 import { IMovie } from "../../interfaces/IMovie";
 import Button from "../Button";
+import { getMovie } from "../../store/selectors";
+import { IAppState } from "../../store/reducers/rootReducer";
+import { setActiveMovie } from "../../store/actions/loadMovies";
 
 interface IHeaderProps {
-  showDetails: boolean;
   movie: IMovie;
   changeView: Function;
 }
 
-const Header: React.FC<IHeaderProps> = ({ showDetails, movie, changeView }) => {
-  const [headerHeight, setHeaderHeight] = useState(50);
+const HEADER_HEIGHT = {
+  OPENED: 70,
+  CLOSED: 50,
+};
+
+const Header: React.FC<IHeaderProps> = ({ movie, changeView }) => {
+  const [headerHeight, setHeaderHeight] = useState(HEADER_HEIGHT.CLOSED);
+  const showDetails = useMemo(() => !!movie, [movie]);
 
   let height = useMemo(() => `${headerHeight}vh`, [headerHeight]);
 
-  const onEnter = () => {
-    showDetails && setHeaderHeight(70);
-  };
+  const onEnter = useCallback(() => {
+    movie && setHeaderHeight(HEADER_HEIGHT.OPENED);
+  }, [movie]);
 
-  const onLeave = () => {
-    setHeaderHeight(50);
-  };
+  const onLeave = useCallback(() => {
+    setHeaderHeight(HEADER_HEIGHT.CLOSED);
+  }, [movie]);
 
   const closeDetails = useCallback(() => {
-    changeView(false);
-  }, [showDetails]);
+    changeView(null);
+  }, [movie]);
 
   return (
     <Box
@@ -86,4 +95,12 @@ const Header: React.FC<IHeaderProps> = ({ showDetails, movie, changeView }) => {
   );
 };
 
-export default Header;
+const mapState = (state: IAppState) => ({
+  movie: getMovie(state),
+});
+
+const mapDispatch = {
+  changeView: (id: number | null) => setActiveMovie(id),
+};
+
+export default connect(mapState, mapDispatch)(Header);

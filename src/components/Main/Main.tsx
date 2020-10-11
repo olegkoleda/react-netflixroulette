@@ -8,17 +8,20 @@ import { IMovie } from "../../interfaces/IMovie";
 
 interface IMainProps {
   movies: IMovie[];
-  changeMovie: Function;
 }
 
 const mockedData = {
   filters: [
-    { filter: "All", checked: true },
-    { filter: "Documentary", checked: false },
-    { filter: "Comedy", checked: false },
-    { filter: "Horror", checked: false },
+    { value: "", label: "All" },
+    { value: "Documentary", label: "Documentary" },
+    { value: "Comedy", label: "Comedy" },
+    { value: "Horror", label: "Horror" },
   ],
-  sort: ["Release date", "Rating", "Budget"],
+  sort: [
+    { value: "release_date", label: "Release date" },
+    { value: "rating", label: "Rating" },
+    { value: "budget", label: "Budget" },
+  ],
 };
 
 const controlsAreasMd = `filter filter filter sort`;
@@ -28,7 +31,7 @@ const controlsAreasMobile = `
   sort
 `;
 
-const Main: React.FC<IMainProps> = ({ movies, changeMovie }) => (
+const Main: React.FC<IMainProps> = ({ movies }) => (
   <Box as={StyledMain} paddingHorizontal={"1rem"} paddingHorizontalMd={"3rem"}>
     <Composition areas={controlsAreasMobile} areasMd={controlsAreasMd}>
       {(Areas) => (
@@ -45,7 +48,7 @@ const Main: React.FC<IMainProps> = ({ movies, changeMovie }) => (
     <StyledResults>
       <span>{movies.length}</span> movies found
     </StyledResults>
-    <CardsList data={movies} changeMovie={changeMovie} />
+    <CardsList data={movies} />
   </Box>
 );
 

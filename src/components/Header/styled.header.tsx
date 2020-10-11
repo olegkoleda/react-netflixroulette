@@ -24,4 +24,5 @@ export const StyledBackground = styled.div`
 export const StyledHeaderWrapper = styled.div`
   overflow: hidden;
   transition: height 1s;
+  position: relative;
 `;

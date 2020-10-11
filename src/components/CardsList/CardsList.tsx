@@ -5,9 +5,8 @@ import { IMovie } from "../../interfaces/IMovie";
 
 interface ICardListProps {
   data: IMovie[];
-  changeMovie: Function;
 }
-const CardsList: React.FC<ICardListProps> = ({ data, changeMovie }) => {
+const CardsList: React.FC<ICardListProps> = ({ data }) => {
   return (
     <Composition
       templateCols={"repeat(auto-fill, minmax(20rem, 1fr))"}
@@ -22,7 +21,6 @@ const CardsList: React.FC<ICardListProps> = ({ data, changeMovie }) => {
           releaseDate={release_date}
           title={title}
           id={id}
-          changeMovie={changeMovie}
         />
       ))}
     </Composition>
