@@ -10,11 +10,15 @@ export const StyledSelect = styled.div<IError>`
     --rmsc-main: #4285f4;
     --rmsc-hover: ${(props) => props.theme.color.black};
     --rmsc-selected: ${(props) => props.theme.color.red};
-    --rmsc-border: ${(props) =>
-      props.hasError ? `1px solid ${props.theme.color.red}` : "none"};
+    --rmsc-border: none;
     --rmsc-bg: ${(props) => props.theme.color.darkgray};
     --rmsc-p: 10px; /* Spacing */
     --rmsc-radius: 0; /* Radius */
     --rmsc-h: 3rem; /* Height */
+
+    .dropdown-container {
+      border: ${(props) =>
+        props.hasError ? `1px solid ${props.theme.color.red}` : "none"};
+    }
   }
 `;
