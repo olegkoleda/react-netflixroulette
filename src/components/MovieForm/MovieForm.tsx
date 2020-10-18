@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo, useState } from "react";
-import { Formik, FormikProps, Form, validateYupSchema } from "formik";
+import React, { useMemo, useState } from "react";
+import { Formik, FormikProps, Form } from "formik";
 import Input from "../Input";
 import Select from "../Select";
 import Button from "../Button";
@@ -79,8 +79,6 @@ const MovieForm: React.FC<IFormProps> = ({ movieData, submitCallback }) => {
           genres,
           ...values,
         };
-        console.log(formData);
-
         submitCallback(formData);
       }}
     >
@@ -92,7 +90,7 @@ const MovieForm: React.FC<IFormProps> = ({ movieData, submitCallback }) => {
               <StyledText>{movieData?.id}</StyledText>
             </StyledLabel>
           )}
-          <Input name="title" label="Title" placeholder="Select Title"/>
+          <Input name="title" label="Title" placeholder="Select Title" />
           <Input
             name="release_date"
             type="date"
@@ -108,8 +106,8 @@ const MovieForm: React.FC<IFormProps> = ({ movieData, submitCallback }) => {
             options={options}
             selected={selected}
             setSelected={setSelected}
-            label={"Genre"}
-            placeholder={"Select Genre"}
+            label="Genre"
+            placeholder="Select Genre"
             search={true}
           />
           <Input name="overview" label="Overview" placeholder="Overview here" />
@@ -120,10 +118,10 @@ const MovieForm: React.FC<IFormProps> = ({ movieData, submitCallback }) => {
             type={"number"}
           />
           <Box flex justifyContent={"space-between"} marginTop={"2rem"}>
-            <Button secondary onClick={props.resetForm}>
+            <Button type="button" secondary onClick={props.resetForm}>
               Reset
             </Button>
-            <Button>Submit</Button>
+            <Button type="submit">Submit</Button>
           </Box>
         </Form>
       )}

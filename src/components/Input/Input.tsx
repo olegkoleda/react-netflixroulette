@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, {  useMemo } from "react";
 import { useField } from "formik";
 import {
   StyledError,
@@ -16,13 +16,14 @@ export interface IInputProps {
 }
 const Input: React.FC<IInputProps> = ({ label, ...props }) => {
   const [field, meta] = useField(props);
+  const hasError = useMemo(() => !!(meta.touched && meta.error), [meta]);
   return (
     <StyledInputWrapper>
       <StyledLabel>
         {label}
-        <StyledInput {...field} {...props} hasError={!!(meta.touched && meta.error)}/>
+        <StyledInput {...field} {...props} hasError={hasError} />
       </StyledLabel>
-      {meta.touched && meta.error && <StyledError>{meta.error}</StyledError>}
+      {hasError && <StyledError>{meta.error}</StyledError>}
     </StyledInputWrapper>
   );
 };

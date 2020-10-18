@@ -4,6 +4,7 @@ export interface IButtonProps {
   secondary?: boolean;
   feature?: boolean;
   children?: React.ReactNode;
+  type?: "submit" | "button";
   onClick?: () => void;
 }
 
