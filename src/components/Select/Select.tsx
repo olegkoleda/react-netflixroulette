@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import MultiSelect from "react-multi-select-component";
 import { StyledSelect } from "./styled.select";
 import {
@@ -7,6 +7,7 @@ import {
   StyledInputWrapper,
 } from "../Input/styled.input";
 import { Option } from "react-multi-select-component/dist/lib/interfaces";
+import { useField } from "formik";
 
 export interface IError {
   hasError?: boolean;
@@ -14,36 +15,38 @@ export interface IError {
 
 interface ICustomSelectProps extends IError {
   options: Option[];
-  selected: Option[];
-  setSelected?: Function;
   label: string;
   placeholder: string;
   search: boolean;
+  name: string;
 }
 
-const Select: React.FC<ICustomSelectProps> = ({
-  label,
-  options,
-  selected,
-  setSelected,
-  placeholder,
-  search,
-}) => {
+const Select: React.FC<ICustomSelectProps> = (props) => {
+  const { label, options, placeholder, search } = props;
+
+  const [field, meta, helpers] = useField(props);
   return (
     <StyledInputWrapper>
       <StyledLabel>
-        <StyledSelect>
+        <StyledSelect
+          hasError={!!meta.error}
+          onClick={() => {
+            helpers.setTouched(true);
+          }}
+        >
           {label}
           <MultiSelect
             options={options}
-            value={selected}
-            onChange={setSelected}
+            {...field}
+            onChange={(value: Option) => {
+              helpers.setValue(value);
+            }}
             labelledBy={placeholder}
             disableSearch={!search}
           />
         </StyledSelect>
       </StyledLabel>
-      <StyledError />
+      {!!meta.error && <StyledError>{meta.error}</StyledError>}
     </StyledInputWrapper>
   );
 };

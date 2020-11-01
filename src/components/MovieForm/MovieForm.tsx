@@ -13,12 +13,18 @@ interface IFormProps {
   submitCallback: Function;
 }
 
+interface IGenre {
+  label: string;
+  value: string;
+}
+
 interface IFormValues {
   title: string;
   release_date: string;
   poster_path: string;
   overview: string;
   runtime: number;
+  genres: IGenre[];
 }
 
 const options = [
@@ -48,6 +54,9 @@ const MovieSchema = Yup.object().shape({
   release_date: Yup.date().required("Required!"),
   poster_path: Yup.string().url("Not URL").required("Required!"),
   overview: Yup.string().required("Required!"),
+  genres: Yup.array()
+    .of(Yup.object().shape({ label: Yup.string(), value: Yup.string() })).min(1)
+    .required("Required!"),
   runtime: Yup.number()
     .positive("Must be a positive number")
     .required("Required!"),
@@ -59,9 +68,7 @@ const MovieForm: React.FC<IFormProps> = ({ movieData, submitCallback }) => {
       movieData,
     ]) || [];
 
-  const [selected, setSelected] = useState(selectedGenres);
-
-  const genres = useMemo(() => selected.map(({ value }) => value), [selected]);
+  const formatGenres = (genres: IGenre[]) => genres.map(({ value }) => value);
 
   return (
     <Formik
@@ -71,13 +78,15 @@ const MovieForm: React.FC<IFormProps> = ({ movieData, submitCallback }) => {
         poster_path: movieData?.poster_path || "",
         overview: movieData?.overview || "",
         runtime: movieData?.runtime || "",
+        genres: selectedGenres,
       }}
       validationSchema={MovieSchema}
       onSubmit={(values) => {
+        console.log(formatGenres(values.genres));
         const formData = {
           ...movieData,
-          genres,
           ...values,
+          genres: formatGenres(values.genres),
         };
         submitCallback(formData);
       }}
@@ -104,11 +113,10 @@ const MovieForm: React.FC<IFormProps> = ({ movieData, submitCallback }) => {
           />
           <Select
             options={options}
-            selected={selected}
-            setSelected={setSelected}
             label="Genre"
             placeholder="Select Genre"
             search={true}
+            name="genres"
           />
           <Input name="overview" label="Overview" placeholder="Overview here" />
           <Input
