@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterSection matches the Snapshot 1`] = `
+<footer
+  className="styledfooter__StyledFooter-vo699h-0 cZSprY sc-AxjAm bqPLoD"
+  height="4.5rem"
+>
+  <span>
+    <span
+      className="styledlogo__StyledLogo-sc-1suyno6-0 dKPWah"
+      fontWeight={800}
+    >
+      netflix
+    </span>
+    <span
+      className="styledlogo__StyledLogo-sc-1suyno6-0 eKILPN"
+      fontWeight={400}
+    >
+      roulette
+    </span>
+  </span>
+</footer>
+`;
