@@ -17,6 +17,8 @@ import Button from "../Button";
 import { getMovie } from "../../store/selectors";
 import { IAppState } from "../../store/reducers/rootReducer";
 import { setActiveMovie } from "../../store/actions/loadMovies";
+import { Route, Switch } from "react-router";
+import { Link } from "react-router-dom";
 
 interface IHeaderProps {
   movie: IMovie;
@@ -30,7 +32,6 @@ const HEADER_HEIGHT = {
 
 const Header: React.FC<IHeaderProps> = ({ movie, changeView }) => {
   const [headerHeight, setHeaderHeight] = useState(HEADER_HEIGHT.CLOSED);
-  const showDetails = useMemo(() => !!movie, [movie]);
 
   let height = useMemo(() => `${headerHeight}vh`, [headerHeight]);
 
@@ -68,29 +69,36 @@ const Header: React.FC<IHeaderProps> = ({ movie, changeView }) => {
         <h1>
           <Logo />
         </h1>
-        {showDetails ? (
-          <Button onClick={closeDetails}>Back to search</Button>
-        ) : (
-          <AddMovie />
-        )}
+        <Switch>
+          <Route path="/film/:id">
+            <Link to="/">
+              <Button onClick={closeDetails}>Back to search</Button>
+            </Link>
+          </Route>
+          <Route exact path={["/", "/search/:query"]}>
+            <AddMovie />
+          </Route>
+        </Switch>
       </Box>
-      {showDetails ? (
-        <MovieDetails data={movie} />
-      ) : (
-        <Box
-          flex
-          flexDirection={"row"}
-          alignItems={"center"}
-          marginHorizontal={"6rem"}
-          height={"100%"}
-          marginTop={"-3rem"}
-        >
-          <Box width={"100%"}>
-            <Heading as="h2">Find your movie</Heading>
-            <Search />
+
+      <Switch>
+        <Route path="/film/:id" component={MovieDetails} />
+        <Route exact path={["/", "/search/:query"]}>
+          <Box
+            flex
+            flexDirection={"row"}
+            alignItems={"center"}
+            marginHorizontal={"6rem"}
+            height={"100%"}
+            marginTop={"-3rem"}
+          >
+            <Box width={"100%"}>
+              <Heading as="h2">Find your movie</Heading>
+              <Search />
+            </Box>
           </Box>
-        </Box>
-      )}
+        </Route>
+      </Switch>
     </Box>
   );
 };

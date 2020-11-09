@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import { Box, Composition } from "atomic-layout";
 import Heading from "../Heading";
 import {
@@ -8,12 +8,36 @@ import {
   StyledAccent,
 } from "./styled.movieDetail";
 import { IMovie } from "../../interfaces/IMovie";
+import { getMovie } from "../../store/selectors";
+import { IAppState } from "../../store/reducers/rootReducer";
+import { connect } from "react-redux";
+import { loadMovieById, setActiveMovie } from "../../store/actions/loadMovies";
+import * as H from "history";
 
-interface IMovieDetails {
-  data: IMovie;
+export interface RouteComponentProps<P> {
+  match: match<P>;
+  location: H.Location;
+  history: H.History;
+  staticContext?: any;
 }
 
-const MovieDetails: React.FC<IMovieDetails> = ({ data }) => {
+export interface match<P> {
+  params: P;
+  isExact: boolean;
+  path: string;
+  url: string;
+}
+
+interface MatchParams {
+  id: string;
+}
+interface IMovieDetailsProps extends RouteComponentProps<MatchParams> {
+  movie: IMovie;
+  loadMovieProp: Function;
+  setActiveProp: Function;
+}
+
+const MovieDetails: React.FC<IMovieDetailsProps> = (props) => {
   const {
     title = "Default title",
     tagline = "Default tagline",
@@ -22,9 +46,16 @@ const MovieDetails: React.FC<IMovieDetails> = ({ data }) => {
     poster_path = "#",
     overview = "default",
     runtime = 123,
-  } = data;
+  } = props.movie || {};
+
+  const activeMovieId = +props.match.params.id;
 
   const releaseDate = new Date(release_date).getFullYear();
+
+  useEffect(() => {
+    props.setActiveProp(activeMovieId);
+    !props.movie && props.loadMovieProp(activeMovieId);
+  }, [props.movie]);
 
   return (
     <Composition
@@ -51,4 +82,13 @@ const MovieDetails: React.FC<IMovieDetails> = ({ data }) => {
   );
 };
 
-export default MovieDetails;
+const mapState = (state: IAppState, props: IMovieDetailsProps) => ({
+  movie: getMovie(state, +props.match.params.id),
+});
+
+const mapDispatchToProps = {
+  loadMovieProp: (id: number) => loadMovieById(id),
+  setActiveProp: (id: number) => setActiveMovie(id),
+};
+
+export default connect(mapState, mapDispatchToProps)(MovieDetails);

@@ -22,9 +22,13 @@ const updateMovie = (movieData: IMovie) =>
 const loadMovies = (params: IRequestParams) =>
   axios.get(`${API_URL}/movies`, { params });
 
+const loadMovieById = (id: number) =>
+  axios.get(`${API_URL}/movies/${id}`);
+
 export const api = {
   addMovie,
   deleteMovie,
   updateMovie,
   loadMovies,
+  loadMovieById,
 };

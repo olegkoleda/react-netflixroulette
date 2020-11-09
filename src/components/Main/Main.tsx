@@ -5,6 +5,7 @@ import Filter from "../Filter";
 import Sort from "../Sort";
 import CardsList from "../CardsList";
 import { IMovie } from "../../interfaces/IMovie";
+import Heading from "../Heading";
 
 interface IMainProps {
   movies: IMovie[];
@@ -45,10 +46,19 @@ const Main: React.FC<IMainProps> = ({ movies }) => (
         </>
       )}
     </Composition>
-    <StyledResults>
-      <span>{movies.length}</span> movies found
-    </StyledResults>
-    <CardsList data={movies} />
+
+    {(movies.length && (
+      <>
+        <StyledResults>
+          <span>{movies.length}</span> movies found
+        </StyledResults>
+        <CardsList data={movies} />
+      </>
+    )) || (
+      <Box flex justifyContent={"center"} marginTop={"2rem"}>
+        <Heading >No movie found</Heading>
+      </Box>
+    )}
   </Box>
 );
 

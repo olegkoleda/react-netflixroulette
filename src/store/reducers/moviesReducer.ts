@@ -2,7 +2,11 @@ import {
   LOAD_MOVIES_ERROR,
   LOAD_MOVIES_STARTED,
   LOAD_MOVIES_SUCCESS,
+  LOAD_MOVIE_ERROR,
+  LOAD_MOVIE_STARTED,
+  LOAD_MOVIE_SUCCESS,
   SET_ACTIVE_MOVIE,
+  LoadMoviesActionType,
   LoadMovieActionType,
   ISetActiveMovie,
 } from "../types/loadMovies";
@@ -49,6 +53,7 @@ const initialState: IMoviesState = {
 export default function moviesReducer(
   state = initialState,
   action:
+    | LoadMoviesActionType
     | LoadMovieActionType
     | ISetActiveMovie
     | AddMovieActionType
@@ -57,6 +62,7 @@ export default function moviesReducer(
 ) {
   switch (action.type) {
     case LOAD_MOVIES_STARTED:
+    case LOAD_MOVIE_STARTED:
     case ADD_MOVIE_STARTED:
     case DELETE_MOVIE_STARTED:
     case UPDATE_MOVIE_STARTED:
@@ -70,7 +76,14 @@ export default function moviesReducer(
         loading: false,
         list: action.payload,
       };
+    case LOAD_MOVIE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        list: [...state.list, action.payload],
+      };
     case LOAD_MOVIES_ERROR:
+    case LOAD_MOVIE_ERROR:
     case ADD_MOVIE_ERROR:
     case DELETE_MOVIE_ERROR:
     case UPDATE_MOVIE_ERROR:

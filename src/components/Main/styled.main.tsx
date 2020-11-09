@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledMain = styled.main`
   height: 100%;
+  min-height: calc(50vh - 6.5rem);
   background: ${(props) => props.theme.color.black};
 `;
 

@@ -3,9 +3,13 @@ import { IMovie } from "../../interfaces/IMovie";
 import {
   ISetActiveMovie,
   LoadMovieActionType,
+  LoadMoviesActionType,
   LOAD_MOVIES_ERROR,
   LOAD_MOVIES_STARTED,
   LOAD_MOVIES_SUCCESS,
+  LOAD_MOVIE_ERROR,
+  LOAD_MOVIE_STARTED,
+  LOAD_MOVIE_SUCCESS,
   SET_ACTIVE_MOVIE,
 } from "../types/loadMovies";
 import { AppDispatch } from "../store";
@@ -21,6 +25,8 @@ export const loadMovies = () => async (
     sortOrder: "desc",
     filter: state.params.filter,
     limit: 20,
+    searchBy: 'title',
+    search: state.params.search,
   };
 
   dispatch(loadMoviesStarted());
@@ -33,17 +39,45 @@ export const loadMovies = () => async (
   }
 };
 
-const loadMoviesStarted = (): LoadMovieActionType => ({
+export const loadMovieById = (id: number) => async (
+  dispatch: AppDispatch
+) => {
+
+  dispatch(loadMovieStarted());
+
+  try {
+    const response = await api.loadMovieById(id);
+    dispatch(loadMovieSuccess(response.data));
+  } catch (error) {
+    dispatch(loadMovieError(error));
+  }
+};
+
+const loadMoviesStarted = (): LoadMoviesActionType => ({
   type: LOAD_MOVIES_STARTED,
 });
 
-const loadMoviesSuccess = (movies: IMovie[]): LoadMovieActionType => ({
+const loadMoviesSuccess = (movies: IMovie[]): LoadMoviesActionType => ({
   type: LOAD_MOVIES_SUCCESS,
   payload: movies,
 });
 
-const loadMoviesError = (error: Error): LoadMovieActionType => ({
+const loadMoviesError = (error: Error): LoadMoviesActionType => ({
   type: LOAD_MOVIES_ERROR,
+  error: error,
+});
+
+const loadMovieStarted = (): LoadMovieActionType => ({
+  type: LOAD_MOVIE_STARTED,
+});
+
+const loadMovieSuccess = (movie: IMovie): LoadMovieActionType => ({
+  type: LOAD_MOVIE_SUCCESS,
+  payload: movie,
+});
+
+const loadMovieError = (error: Error): LoadMovieActionType => ({
+  type: LOAD_MOVIE_ERROR,
   error: error,
 });
 
