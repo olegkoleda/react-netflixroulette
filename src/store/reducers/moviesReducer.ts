@@ -41,7 +41,7 @@ export interface IMoviesState {
   isMovieAdded: boolean;
 }
 
-const initialState: IMoviesState = {
+export const initialState: IMoviesState = {
   list: [],
   loading: false,
   error: null,

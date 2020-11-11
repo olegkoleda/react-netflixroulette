@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sort component matches the Snapshot 1`] = `
+<div
+  className="styledsort__StyledSelectWrapper-sc-13rug2s-0 cQsuLb sc-AxjAm kDfEX"
+>
+  <label
+    className="styledsort__StyledLabel-sc-13rug2s-1 iVKDWt"
+    htmlFor="sort-by"
+  >
+    SORT BY
+  </label>
+  <select
+    className="styledsort__StyledSelect-sc-13rug2s-3 iacsnF"
+    defaultValue="release_date"
+    id="sort-by"
+    onChange={[Function]}
+  >
+    <option
+      className="styledsort__StyledOption-sc-13rug2s-2 kiNmiY"
+      value="release_date"
+    >
+      RELEASE DATE
+    </option>
+    <option
+      className="styledsort__StyledOption-sc-13rug2s-2 kiNmiY"
+      value="rating"
+    >
+      RATING
+    </option>
+    <option
+      className="styledsort__StyledOption-sc-13rug2s-2 kiNmiY"
+      value="budget"
+    >
+      BUDGET
+    </option>
+  </select>
+</div>
+`;

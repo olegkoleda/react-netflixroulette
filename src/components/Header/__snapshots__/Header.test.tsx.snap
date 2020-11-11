@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component matches the Snapshot 1`] = `
+<div
+  className="styledheader__StyledHeaderWrapper-ntr33y-2 hcnsvj sc-AxjAm feVghO"
+  height="50vh"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <img
+    alt=""
+    className="styledheader__StyledHeaderImage-ntr33y-0 hHPvMt"
+    src="test-file-stub"
+  />
+  <div
+    className="styledheader__StyledBackground-ntr33y-1 fkOeYX"
+  />
+  <header
+    className="sc-AxjAm iZLCHR"
+  >
+    <h1>
+      <span>
+        <span
+          className="styledlogo__StyledLogo-sc-1suyno6-0 dKPWah"
+          fontWeight={800}
+        >
+          netflix
+        </span>
+        <span
+          className="styledlogo__StyledLogo-sc-1suyno6-0 eKILPN"
+          fontWeight={400}
+        >
+          roulette
+        </span>
+      </span>
+    </h1>
+    <button
+      className="styledbutton__StyledButton-sc-7hz9n2-0 jSpEnr"
+      onClick={[Function]}
+    >
+      + ADD MOVIE
+    </button>
+  </header>
+  <div
+    className="sc-AxjAm bhDiCM"
+    height="100%"
+  >
+    <div
+      className="sc-AxjAm fqTMaV"
+      width="100%"
+    >
+      <h2
+        className="Heading-sc-15b2y3d-0 fKqoJe"
+      >
+        Find your movie
+      </h2>
+      <form
+        action="#"
+        onReset={[Function]}
+        onSubmit={[Function]}
+      >
+        <div
+          className="sc-AxirZ hhbvJa"
+        >
+          <input
+            className="styledsearch__StyledInput-sc-112aji7-0 gYPiLC"
+            name="search"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="What do you want to watch?"
+            type="text"
+            value=""
+          />
+          <button
+            className="styledbutton__StyledButton-sc-7hz9n2-0 dUEACD"
+            type="submit"
+          >
+            SEARCH
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

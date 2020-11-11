@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { sortMovies } from './sortMovies'
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';

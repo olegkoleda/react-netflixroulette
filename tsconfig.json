@@ -24,7 +24,8 @@
     "webpack.config.js",
     "jest",
     "src/setupTests.ts",
-    "dist"
+    "dist",
+    "coverage"
   ],
   "types": ["typePatches"]
 }

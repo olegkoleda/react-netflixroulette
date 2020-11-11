@@ -1,5 +1,5 @@
+// @ts-nocheck
 import paramsReducer, {initialState} from './paramsReducer';
-
 const mockAction = {
   type: "MOCK_ACTION_TYPE",
   payload: {},

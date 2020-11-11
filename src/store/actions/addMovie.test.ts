@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { addMovie } from './addMovie'
 import mockAxios from '../../__mocks__/axios';
 import configureMockStore from 'redux-mock-store';

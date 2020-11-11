@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageNotFound component matches the Snapshot 1`] = `
+<main
+  className="styledmain__StyledMain-sc-1oh6sq-0 ihRYAc sc-AxjAm bkGhTV"
+  height="calc(100vh - 4.5rem)"
+>
+  <div
+    className="styledpageNotFound__StyledLogo-e7272s-0 fWcAhl"
+  >
+    <span>
+      <span
+        className="styledlogo__StyledLogo-sc-1suyno6-0 dKPWah"
+        fontWeight={800}
+      >
+        netflix
+      </span>
+      <span
+        className="styledlogo__StyledLogo-sc-1suyno6-0 eKILPN"
+        fontWeight={400}
+      >
+        roulette
+      </span>
+    </span>
+  </div>
+  <h3
+    className="Heading-sc-15b2y3d-0 fKqoJe"
+  >
+    PAGE NOT FOUND
+  </h3>
+  <div
+    className="styledpageNotFound__StyledError-e7272s-1 iqNCsZ"
+  >
+    404
+  </div>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    <button
+      className="styledbutton__StyledButton-sc-7hz9n2-0 lnvFAg"
+    >
+      Back to home page
+    </button>
+  </a>
+</main>
+`;

@@ -1,0 +1,899 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cards list matches the Snapshot 1`] = `
+<div
+  className="sc-AxirZ cuCwDA"
+>
+  <div
+    className="styledcard__StyledCard-sc-12uocmu-0 ddUlck sc-AxirZ hWzpEH"
+  >
+    <div
+      className="styledcard__StyledImageWrapper-sc-12uocmu-2 kUUJAL"
+    >
+      <div
+        className="styledcardOptions__StyledMenuWrapper-sc-1mjcm79-2 cqgiiq"
+      >
+        <button
+          aria-controls="menu--1"
+          aria-haspopup={true}
+          className="styledcardOptions__StyledMenuButton-sc-1mjcm79-0 bCOwzU card-icon"
+          data-reach-menu-button=""
+          id="menu-button--menu"
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          type="button"
+        >
+          <svg
+            className="styleddots__StyledDots-gpthtv-0 cUHgBz"
+            enableBackground="new 0 0 45.583 45.583"
+            height="45.583"
+            version="1.1"
+            viewBox="0 0 45.583 45.583"
+            width="45.583"
+            x="0"
+            xmlSpace="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <path
+              d="M22.793 12.196c-3.361 0-6.078-2.729-6.078-6.099C16.715 2.73 19.432 0 22.793 0c3.353 0 6.073 2.729 6.073 6.097 0 3.369-2.721 6.099-6.073 6.099zM22.794 28.889c-3.361 0-6.079-2.729-6.079-6.099 0-3.366 2.717-6.099 6.078-6.099 3.353 0 6.073 2.732 6.075 6.099-.002 3.372-2.724 6.099-6.074 6.099zM22.794 45.583c-3.361 0-6.079-2.729-6.079-6.099s2.717-6.098 6.078-6.098c3.353-.002 6.073 2.729 6.073 6.098s-2.722 6.099-6.072 6.099z"
+            />
+          </svg>
+        </button>
+        <div
+          data-reach-menu=""
+          data-reach-menu-popover=""
+          hidden={true}
+        >
+          <div
+            aria-labelledby="menu-button--menu"
+            className="styledcardOptions__StyledMenuList-sc-1mjcm79-1 eHUBtO"
+            data-reach-menu-items=""
+            data-reach-menu-list=""
+            id="menu--1"
+            onKeyDown={[Function]}
+            role="menu"
+            tabIndex={-1}
+          >
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Edit movie
+            </button>
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Delete movie
+            </button>
+          </div>
+        </div>
+      </div>
+      <a
+        href="/film/337167"
+        onClick={[Function]}
+      >
+        <img
+          alt="Fifty Shades Freed"
+          className="styledcard__StyledImage-sc-12uocmu-1 iGJIBa"
+          src="https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg"
+        />
+      </a>
+    </div>
+    <div>
+      <div
+        className="sc-AxjAm fCebMh"
+      >
+        <h3
+          className="styledcard__StyledTitle-sc-12uocmu-3 cmXvO"
+        >
+          Fifty Shades Freed
+        </h3>
+        <span
+          className="styledcard__StyledYear-sc-12uocmu-4 gHVYzo"
+        >
+          2018
+        </span>
+      </div>
+      <span
+        className="styledcard__StyledGenre-sc-12uocmu-5 czUuRy"
+      >
+        Drama, Romance
+      </span>
+    </div>
+  </div>
+  <div
+    className="styledcard__StyledCard-sc-12uocmu-0 ddUlck sc-AxirZ hWzpEH"
+  >
+    <div
+      className="styledcard__StyledImageWrapper-sc-12uocmu-2 kUUJAL"
+    >
+      <div
+        className="styledcardOptions__StyledMenuWrapper-sc-1mjcm79-2 cqgiiq"
+      >
+        <button
+          aria-controls="menu--2"
+          aria-haspopup={true}
+          className="styledcardOptions__StyledMenuButton-sc-1mjcm79-0 bCOwzU card-icon"
+          data-reach-menu-button=""
+          id="menu-button--menu"
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          type="button"
+        >
+          <svg
+            className="styleddots__StyledDots-gpthtv-0 cUHgBz"
+            enableBackground="new 0 0 45.583 45.583"
+            height="45.583"
+            version="1.1"
+            viewBox="0 0 45.583 45.583"
+            width="45.583"
+            x="0"
+            xmlSpace="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <path
+              d="M22.793 12.196c-3.361 0-6.078-2.729-6.078-6.099C16.715 2.73 19.432 0 22.793 0c3.353 0 6.073 2.729 6.073 6.097 0 3.369-2.721 6.099-6.073 6.099zM22.794 28.889c-3.361 0-6.079-2.729-6.079-6.099 0-3.366 2.717-6.099 6.078-6.099 3.353 0 6.073 2.732 6.075 6.099-.002 3.372-2.724 6.099-6.074 6.099zM22.794 45.583c-3.361 0-6.079-2.729-6.079-6.099s2.717-6.098 6.078-6.098c3.353-.002 6.073 2.729 6.073 6.098s-2.722 6.099-6.072 6.099z"
+            />
+          </svg>
+        </button>
+        <div
+          data-reach-menu=""
+          data-reach-menu-popover=""
+          hidden={true}
+        >
+          <div
+            aria-labelledby="menu-button--menu"
+            className="styledcardOptions__StyledMenuList-sc-1mjcm79-1 eHUBtO"
+            data-reach-menu-items=""
+            data-reach-menu-list=""
+            id="menu--2"
+            onKeyDown={[Function]}
+            role="menu"
+            tabIndex={-1}
+          >
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Edit movie
+            </button>
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Delete movie
+            </button>
+          </div>
+        </div>
+      </div>
+      <a
+        href="/film/181808"
+        onClick={[Function]}
+      >
+        <img
+          alt="Star Wars: The Last Jedi"
+          className="styledcard__StyledImage-sc-12uocmu-1 iGJIBa"
+          src="https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg"
+        />
+      </a>
+    </div>
+    <div>
+      <div
+        className="sc-AxjAm fCebMh"
+      >
+        <h3
+          className="styledcard__StyledTitle-sc-12uocmu-3 cmXvO"
+        >
+          Star Wars: The Last Jedi
+        </h3>
+        <span
+          className="styledcard__StyledYear-sc-12uocmu-4 gHVYzo"
+        >
+          2017
+        </span>
+      </div>
+      <span
+        className="styledcard__StyledGenre-sc-12uocmu-5 czUuRy"
+      >
+        Fantasy, Adventure, Science Fiction
+      </span>
+    </div>
+  </div>
+  <div
+    className="styledcard__StyledCard-sc-12uocmu-0 ddUlck sc-AxirZ hWzpEH"
+  >
+    <div
+      className="styledcard__StyledImageWrapper-sc-12uocmu-2 kUUJAL"
+    >
+      <div
+        className="styledcardOptions__StyledMenuWrapper-sc-1mjcm79-2 cqgiiq"
+      >
+        <button
+          aria-controls="menu--3"
+          aria-haspopup={true}
+          className="styledcardOptions__StyledMenuButton-sc-1mjcm79-0 bCOwzU card-icon"
+          data-reach-menu-button=""
+          id="menu-button--menu"
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          type="button"
+        >
+          <svg
+            className="styleddots__StyledDots-gpthtv-0 cUHgBz"
+            enableBackground="new 0 0 45.583 45.583"
+            height="45.583"
+            version="1.1"
+            viewBox="0 0 45.583 45.583"
+            width="45.583"
+            x="0"
+            xmlSpace="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <path
+              d="M22.793 12.196c-3.361 0-6.078-2.729-6.078-6.099C16.715 2.73 19.432 0 22.793 0c3.353 0 6.073 2.729 6.073 6.097 0 3.369-2.721 6.099-6.073 6.099zM22.794 28.889c-3.361 0-6.079-2.729-6.079-6.099 0-3.366 2.717-6.099 6.078-6.099 3.353 0 6.073 2.732 6.075 6.099-.002 3.372-2.724 6.099-6.074 6.099zM22.794 45.583c-3.361 0-6.079-2.729-6.079-6.099s2.717-6.098 6.078-6.098c3.353-.002 6.073 2.729 6.073 6.098s-2.722 6.099-6.072 6.099z"
+            />
+          </svg>
+        </button>
+        <div
+          data-reach-menu=""
+          data-reach-menu-popover=""
+          hidden={true}
+        >
+          <div
+            aria-labelledby="menu-button--menu"
+            className="styledcardOptions__StyledMenuList-sc-1mjcm79-1 eHUBtO"
+            data-reach-menu-items=""
+            data-reach-menu-list=""
+            id="menu--3"
+            onKeyDown={[Function]}
+            role="menu"
+            tabIndex={-1}
+          >
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Edit movie
+            </button>
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Delete movie
+            </button>
+          </div>
+        </div>
+      </div>
+      <a
+        href="/film/284054"
+        onClick={[Function]}
+      >
+        <img
+          alt="Black Panther"
+          className="styledcard__StyledImage-sc-12uocmu-1 iGJIBa"
+          src="https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg"
+        />
+      </a>
+    </div>
+    <div>
+      <div
+        className="sc-AxjAm fCebMh"
+      >
+        <h3
+          className="styledcard__StyledTitle-sc-12uocmu-3 cmXvO"
+        >
+          Black Panther
+        </h3>
+        <span
+          className="styledcard__StyledYear-sc-12uocmu-4 gHVYzo"
+        >
+          2018
+        </span>
+      </div>
+      <span
+        className="styledcard__StyledGenre-sc-12uocmu-5 czUuRy"
+      >
+        Action, Adventure, Fantasy, Science Fiction
+      </span>
+    </div>
+  </div>
+  <div
+    className="styledcard__StyledCard-sc-12uocmu-0 ddUlck sc-AxirZ hWzpEH"
+  >
+    <div
+      className="styledcard__StyledImageWrapper-sc-12uocmu-2 kUUJAL"
+    >
+      <div
+        className="styledcardOptions__StyledMenuWrapper-sc-1mjcm79-2 cqgiiq"
+      >
+        <button
+          aria-controls="menu--4"
+          aria-haspopup={true}
+          className="styledcardOptions__StyledMenuButton-sc-1mjcm79-0 bCOwzU card-icon"
+          data-reach-menu-button=""
+          id="menu-button--menu"
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          type="button"
+        >
+          <svg
+            className="styleddots__StyledDots-gpthtv-0 cUHgBz"
+            enableBackground="new 0 0 45.583 45.583"
+            height="45.583"
+            version="1.1"
+            viewBox="0 0 45.583 45.583"
+            width="45.583"
+            x="0"
+            xmlSpace="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <path
+              d="M22.793 12.196c-3.361 0-6.078-2.729-6.078-6.099C16.715 2.73 19.432 0 22.793 0c3.353 0 6.073 2.729 6.073 6.097 0 3.369-2.721 6.099-6.073 6.099zM22.794 28.889c-3.361 0-6.079-2.729-6.079-6.099 0-3.366 2.717-6.099 6.078-6.099 3.353 0 6.073 2.732 6.075 6.099-.002 3.372-2.724 6.099-6.074 6.099zM22.794 45.583c-3.361 0-6.079-2.729-6.079-6.099s2.717-6.098 6.078-6.098c3.353-.002 6.073 2.729 6.073 6.098s-2.722 6.099-6.072 6.099z"
+            />
+          </svg>
+        </button>
+        <div
+          data-reach-menu=""
+          data-reach-menu-popover=""
+          hidden={true}
+        >
+          <div
+            aria-labelledby="menu-button--menu"
+            className="styledcardOptions__StyledMenuList-sc-1mjcm79-1 eHUBtO"
+            data-reach-menu-items=""
+            data-reach-menu-list=""
+            id="menu--4"
+            onKeyDown={[Function]}
+            role="menu"
+            tabIndex={-1}
+          >
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Edit movie
+            </button>
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Delete movie
+            </button>
+          </div>
+        </div>
+      </div>
+      <a
+        href="/film/354912"
+        onClick={[Function]}
+      >
+        <img
+          alt="Coco"
+          className="styledcard__StyledImage-sc-12uocmu-1 iGJIBa"
+          src="https://image.tmdb.org/t/p/w500/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg"
+        />
+      </a>
+    </div>
+    <div>
+      <div
+        className="sc-AxjAm fCebMh"
+      >
+        <h3
+          className="styledcard__StyledTitle-sc-12uocmu-3 cmXvO"
+        >
+          Coco
+        </h3>
+        <span
+          className="styledcard__StyledYear-sc-12uocmu-4 gHVYzo"
+        >
+          2017
+        </span>
+      </div>
+      <span
+        className="styledcard__StyledGenre-sc-12uocmu-5 czUuRy"
+      >
+        Adventure, Comedy, Family, Animation
+      </span>
+    </div>
+  </div>
+  <div
+    className="styledcard__StyledCard-sc-12uocmu-0 ddUlck sc-AxirZ hWzpEH"
+  >
+    <div
+      className="styledcard__StyledImageWrapper-sc-12uocmu-2 kUUJAL"
+    >
+      <div
+        className="styledcardOptions__StyledMenuWrapper-sc-1mjcm79-2 cqgiiq"
+      >
+        <button
+          aria-controls="menu--5"
+          aria-haspopup={true}
+          className="styledcardOptions__StyledMenuButton-sc-1mjcm79-0 bCOwzU card-icon"
+          data-reach-menu-button=""
+          id="menu-button--menu"
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          type="button"
+        >
+          <svg
+            className="styleddots__StyledDots-gpthtv-0 cUHgBz"
+            enableBackground="new 0 0 45.583 45.583"
+            height="45.583"
+            version="1.1"
+            viewBox="0 0 45.583 45.583"
+            width="45.583"
+            x="0"
+            xmlSpace="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <path
+              d="M22.793 12.196c-3.361 0-6.078-2.729-6.078-6.099C16.715 2.73 19.432 0 22.793 0c3.353 0 6.073 2.729 6.073 6.097 0 3.369-2.721 6.099-6.073 6.099zM22.794 28.889c-3.361 0-6.079-2.729-6.079-6.099 0-3.366 2.717-6.099 6.078-6.099 3.353 0 6.073 2.732 6.075 6.099-.002 3.372-2.724 6.099-6.074 6.099zM22.794 45.583c-3.361 0-6.079-2.729-6.079-6.099s2.717-6.098 6.078-6.098c3.353-.002 6.073 2.729 6.073 6.098s-2.722 6.099-6.072 6.099z"
+            />
+          </svg>
+        </button>
+        <div
+          data-reach-menu=""
+          data-reach-menu-popover=""
+          hidden={true}
+        >
+          <div
+            aria-labelledby="menu-button--menu"
+            className="styledcardOptions__StyledMenuList-sc-1mjcm79-1 eHUBtO"
+            data-reach-menu-items=""
+            data-reach-menu-list=""
+            id="menu--5"
+            onKeyDown={[Function]}
+            role="menu"
+            tabIndex={-1}
+          >
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Edit movie
+            </button>
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Delete movie
+            </button>
+          </div>
+        </div>
+      </div>
+      <a
+        href="/film/333339"
+        onClick={[Function]}
+      >
+        <img
+          alt="Ready Player One"
+          className="styledcard__StyledImage-sc-12uocmu-1 iGJIBa"
+          src="https://image.tmdb.org/t/p/w500/pU1ULUq8D3iRxl1fdX2lZIzdHuI.jpg"
+        />
+      </a>
+    </div>
+    <div>
+      <div
+        className="sc-AxjAm fCebMh"
+      >
+        <h3
+          className="styledcard__StyledTitle-sc-12uocmu-3 cmXvO"
+        >
+          Ready Player One
+        </h3>
+        <span
+          className="styledcard__StyledYear-sc-12uocmu-4 gHVYzo"
+        >
+          2018
+        </span>
+      </div>
+      <span
+        className="styledcard__StyledGenre-sc-12uocmu-5 czUuRy"
+      >
+        Adventure, Science Fiction, Action
+      </span>
+    </div>
+  </div>
+  <div
+    className="styledcard__StyledCard-sc-12uocmu-0 ddUlck sc-AxirZ hWzpEH"
+  >
+    <div
+      className="styledcard__StyledImageWrapper-sc-12uocmu-2 kUUJAL"
+    >
+      <div
+        className="styledcardOptions__StyledMenuWrapper-sc-1mjcm79-2 cqgiiq"
+      >
+        <button
+          aria-controls="menu--6"
+          aria-haspopup={true}
+          className="styledcardOptions__StyledMenuButton-sc-1mjcm79-0 bCOwzU card-icon"
+          data-reach-menu-button=""
+          id="menu-button--menu"
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          type="button"
+        >
+          <svg
+            className="styleddots__StyledDots-gpthtv-0 cUHgBz"
+            enableBackground="new 0 0 45.583 45.583"
+            height="45.583"
+            version="1.1"
+            viewBox="0 0 45.583 45.583"
+            width="45.583"
+            x="0"
+            xmlSpace="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <path
+              d="M22.793 12.196c-3.361 0-6.078-2.729-6.078-6.099C16.715 2.73 19.432 0 22.793 0c3.353 0 6.073 2.729 6.073 6.097 0 3.369-2.721 6.099-6.073 6.099zM22.794 28.889c-3.361 0-6.079-2.729-6.079-6.099 0-3.366 2.717-6.099 6.078-6.099 3.353 0 6.073 2.732 6.075 6.099-.002 3.372-2.724 6.099-6.074 6.099zM22.794 45.583c-3.361 0-6.079-2.729-6.079-6.099s2.717-6.098 6.078-6.098c3.353-.002 6.073 2.729 6.073 6.098s-2.722 6.099-6.072 6.099z"
+            />
+          </svg>
+        </button>
+        <div
+          data-reach-menu=""
+          data-reach-menu-popover=""
+          hidden={true}
+        >
+          <div
+            aria-labelledby="menu-button--menu"
+            className="styledcardOptions__StyledMenuList-sc-1mjcm79-1 eHUBtO"
+            data-reach-menu-items=""
+            data-reach-menu-list=""
+            id="menu--6"
+            onKeyDown={[Function]}
+            role="menu"
+            tabIndex={-1}
+          >
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Edit movie
+            </button>
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Delete movie
+            </button>
+          </div>
+        </div>
+      </div>
+      <a
+        href="/film/338970"
+        onClick={[Function]}
+      >
+        <img
+          alt="Tomb Raider"
+          className="styledcard__StyledImage-sc-12uocmu-1 iGJIBa"
+          src="https://image.tmdb.org/t/p/w500/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg"
+        />
+      </a>
+    </div>
+    <div>
+      <div
+        className="sc-AxjAm fCebMh"
+      >
+        <h3
+          className="styledcard__StyledTitle-sc-12uocmu-3 cmXvO"
+        >
+          Tomb Raider
+        </h3>
+        <span
+          className="styledcard__StyledYear-sc-12uocmu-4 gHVYzo"
+        >
+          2018
+        </span>
+      </div>
+      <span
+        className="styledcard__StyledGenre-sc-12uocmu-5 czUuRy"
+      >
+        Action, Adventure
+      </span>
+    </div>
+  </div>
+  <div
+    className="styledcard__StyledCard-sc-12uocmu-0 ddUlck sc-AxirZ hWzpEH"
+  >
+    <div
+      className="styledcard__StyledImageWrapper-sc-12uocmu-2 kUUJAL"
+    >
+      <div
+        className="styledcardOptions__StyledMenuWrapper-sc-1mjcm79-2 cqgiiq"
+      >
+        <button
+          aria-controls="menu--7"
+          aria-haspopup={true}
+          className="styledcardOptions__StyledMenuButton-sc-1mjcm79-0 bCOwzU card-icon"
+          data-reach-menu-button=""
+          id="menu-button--menu"
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          type="button"
+        >
+          <svg
+            className="styleddots__StyledDots-gpthtv-0 cUHgBz"
+            enableBackground="new 0 0 45.583 45.583"
+            height="45.583"
+            version="1.1"
+            viewBox="0 0 45.583 45.583"
+            width="45.583"
+            x="0"
+            xmlSpace="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <path
+              d="M22.793 12.196c-3.361 0-6.078-2.729-6.078-6.099C16.715 2.73 19.432 0 22.793 0c3.353 0 6.073 2.729 6.073 6.097 0 3.369-2.721 6.099-6.073 6.099zM22.794 28.889c-3.361 0-6.079-2.729-6.079-6.099 0-3.366 2.717-6.099 6.078-6.099 3.353 0 6.073 2.732 6.075 6.099-.002 3.372-2.724 6.099-6.074 6.099zM22.794 45.583c-3.361 0-6.079-2.729-6.079-6.099s2.717-6.098 6.078-6.098c3.353-.002 6.073 2.729 6.073 6.098s-2.722 6.099-6.072 6.099z"
+            />
+          </svg>
+        </button>
+        <div
+          data-reach-menu=""
+          data-reach-menu-popover=""
+          hidden={true}
+        >
+          <div
+            aria-labelledby="menu-button--menu"
+            className="styledcardOptions__StyledMenuList-sc-1mjcm79-1 eHUBtO"
+            data-reach-menu-items=""
+            data-reach-menu-list=""
+            id="menu--7"
+            onKeyDown={[Function]}
+            role="menu"
+            tabIndex={-1}
+          >
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Edit movie
+            </button>
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Delete movie
+            </button>
+          </div>
+        </div>
+      </div>
+      <a
+        href="/film/284053"
+        onClick={[Function]}
+      >
+        <img
+          alt="Thor: Ragnarok"
+          className="styledcard__StyledImage-sc-12uocmu-1 iGJIBa"
+          src="https://image.tmdb.org/t/p/w500/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg"
+        />
+      </a>
+    </div>
+    <div>
+      <div
+        className="sc-AxjAm fCebMh"
+      >
+        <h3
+          className="styledcard__StyledTitle-sc-12uocmu-3 cmXvO"
+        >
+          Thor: Ragnarok
+        </h3>
+        <span
+          className="styledcard__StyledYear-sc-12uocmu-4 gHVYzo"
+        >
+          2017
+        </span>
+      </div>
+      <span
+        className="styledcard__StyledGenre-sc-12uocmu-5 czUuRy"
+      >
+        Action, Adventure, Fantasy
+      </span>
+    </div>
+  </div>
+  <div
+    className="styledcard__StyledCard-sc-12uocmu-0 ddUlck sc-AxirZ hWzpEH"
+  >
+    <div
+      className="styledcard__StyledImageWrapper-sc-12uocmu-2 kUUJAL"
+    >
+      <div
+        className="styledcardOptions__StyledMenuWrapper-sc-1mjcm79-2 cqgiiq"
+      >
+        <button
+          aria-controls="menu--8"
+          aria-haspopup={true}
+          className="styledcardOptions__StyledMenuButton-sc-1mjcm79-0 bCOwzU card-icon"
+          data-reach-menu-button=""
+          id="menu-button--menu"
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          type="button"
+        >
+          <svg
+            className="styleddots__StyledDots-gpthtv-0 cUHgBz"
+            enableBackground="new 0 0 45.583 45.583"
+            height="45.583"
+            version="1.1"
+            viewBox="0 0 45.583 45.583"
+            width="45.583"
+            x="0"
+            xmlSpace="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <path
+              d="M22.793 12.196c-3.361 0-6.078-2.729-6.078-6.099C16.715 2.73 19.432 0 22.793 0c3.353 0 6.073 2.729 6.073 6.097 0 3.369-2.721 6.099-6.073 6.099zM22.794 28.889c-3.361 0-6.079-2.729-6.079-6.099 0-3.366 2.717-6.099 6.078-6.099 3.353 0 6.073 2.732 6.075 6.099-.002 3.372-2.724 6.099-6.074 6.099zM22.794 45.583c-3.361 0-6.079-2.729-6.079-6.099s2.717-6.098 6.078-6.098c3.353-.002 6.073 2.729 6.073 6.098s-2.722 6.099-6.072 6.099z"
+            />
+          </svg>
+        </button>
+        <div
+          data-reach-menu=""
+          data-reach-menu-popover=""
+          hidden={true}
+        >
+          <div
+            aria-labelledby="menu-button--menu"
+            className="styledcardOptions__StyledMenuList-sc-1mjcm79-1 eHUBtO"
+            data-reach-menu-items=""
+            data-reach-menu-list=""
+            id="menu--8"
+            onKeyDown={[Function]}
+            role="menu"
+            tabIndex={-1}
+          >
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Edit movie
+            </button>
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Delete movie
+            </button>
+          </div>
+        </div>
+      </div>
+      <a
+        href="/film/321612"
+        onClick={[Function]}
+      >
+        <img
+          alt="Beauty and the Beast"
+          className="styledcard__StyledImage-sc-12uocmu-1 iGJIBa"
+          src="https://image.tmdb.org/t/p/w500/tWqifoYuwLETmmasnGHO7xBjEtt.jpg"
+        />
+      </a>
+    </div>
+    <div>
+      <div
+        className="sc-AxjAm fCebMh"
+      >
+        <h3
+          className="styledcard__StyledTitle-sc-12uocmu-3 cmXvO"
+        >
+          Beauty and the Beast
+        </h3>
+        <span
+          className="styledcard__StyledYear-sc-12uocmu-4 gHVYzo"
+        >
+          2017
+        </span>
+      </div>
+      <span
+        className="styledcard__StyledGenre-sc-12uocmu-5 czUuRy"
+      >
+        Family, Fantasy, Romance
+      </span>
+    </div>
+  </div>
+  <div
+    className="styledcard__StyledCard-sc-12uocmu-0 ddUlck sc-AxirZ hWzpEH"
+  >
+    <div
+      className="styledcard__StyledImageWrapper-sc-12uocmu-2 kUUJAL"
+    >
+      <div
+        className="styledcardOptions__StyledMenuWrapper-sc-1mjcm79-2 cqgiiq"
+      >
+        <button
+          aria-controls="menu--9"
+          aria-haspopup={true}
+          className="styledcardOptions__StyledMenuButton-sc-1mjcm79-0 bCOwzU card-icon"
+          data-reach-menu-button=""
+          id="menu-button--menu"
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          type="button"
+        >
+          <svg
+            className="styleddots__StyledDots-gpthtv-0 cUHgBz"
+            enableBackground="new 0 0 45.583 45.583"
+            height="45.583"
+            version="1.1"
+            viewBox="0 0 45.583 45.583"
+            width="45.583"
+            x="0"
+            xmlSpace="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0"
+          >
+            <path
+              d="M22.793 12.196c-3.361 0-6.078-2.729-6.078-6.099C16.715 2.73 19.432 0 22.793 0c3.353 0 6.073 2.729 6.073 6.097 0 3.369-2.721 6.099-6.073 6.099zM22.794 28.889c-3.361 0-6.079-2.729-6.079-6.099 0-3.366 2.717-6.099 6.078-6.099 3.353 0 6.073 2.732 6.075 6.099-.002 3.372-2.724 6.099-6.074 6.099zM22.794 45.583c-3.361 0-6.079-2.729-6.079-6.099s2.717-6.098 6.078-6.098c3.353-.002 6.073 2.729 6.073 6.098s-2.722 6.099-6.072 6.099z"
+            />
+          </svg>
+        </button>
+        <div
+          data-reach-menu=""
+          data-reach-menu-popover=""
+          hidden={true}
+        >
+          <div
+            aria-labelledby="menu-button--menu"
+            className="styledcardOptions__StyledMenuList-sc-1mjcm79-1 eHUBtO"
+            data-reach-menu-items=""
+            data-reach-menu-list=""
+            id="menu--9"
+            onKeyDown={[Function]}
+            role="menu"
+            tabIndex={-1}
+          >
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Edit movie
+            </button>
+            <button
+              className="styledoptionsButton__StyledOptionsButton-hm30vi-0 fybYNX"
+              onClick={[Function]}
+            >
+              Delete movie
+            </button>
+          </div>
+        </div>
+      </div>
+      <a
+        href="/film/399055"
+        onClick={[Function]}
+      >
+        <img
+          alt="The Shape of Water"
+          className="styledcard__StyledImage-sc-12uocmu-1 iGJIBa"
+          src="https://image.tmdb.org/t/p/w500/k4FwHlMhuRR5BISY2Gm2QZHlH5Q.jpg"
+        />
+      </a>
+    </div>
+    <div>
+      <div
+        className="sc-AxjAm fCebMh"
+      >
+        <h3
+          className="styledcard__StyledTitle-sc-12uocmu-3 cmXvO"
+        >
+          The Shape of Water
+        </h3>
+        <span
+          className="styledcard__StyledYear-sc-12uocmu-4 gHVYzo"
+        >
+          2017
+        </span>
+      </div>
+      <span
+        className="styledcard__StyledGenre-sc-12uocmu-5 czUuRy"
+      >
+        Drama, Fantasy, Romance
+      </span>
+    </div>
+  </div>
+</div>
+`;
