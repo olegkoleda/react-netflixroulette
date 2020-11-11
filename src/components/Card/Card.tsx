@@ -1,6 +1,4 @@
-import React, { useCallback, useMemo } from "react";
-import { connect } from "react-redux";
-import { setActiveMovie } from "../../store/actions/loadMovies";
+import React, { useMemo } from "react";
 import { Composition, Box } from "atomic-layout";
 import {
   StyledCard,
@@ -11,6 +9,7 @@ import {
   StyledYear,
 } from "./styled.card";
 import CardOptions from "../CardOptions";
+import { Link } from "react-router-dom";
 
 export interface ICardProps {
   imageUrl: string;
@@ -18,7 +17,6 @@ export interface ICardProps {
   genre: string[];
   releaseDate: string;
   id: number;
-  setActiveMovie: Function;
 }
 
 const Card: React.FC<ICardProps> = ({
@@ -27,23 +25,18 @@ const Card: React.FC<ICardProps> = ({
   releaseDate,
   genre,
   id,
-  setActiveMovie,
 }) => {
   const releaseYear = useMemo(() => new Date(releaseDate).getFullYear(), [
     releaseDate,
   ]);
 
-  const selectFilm = useCallback(() => {
-    setActiveMovie(id);
-  }, [id]);
-
   return (
     <Composition as={StyledCard} templateRows={"28.75rem 1fr"}>
       <StyledImageWrapper>
         <CardOptions id={id} />
-        <a href="#" onClick={selectFilm}>
+        <Link to={`/film/${id}`}>
           <StyledImage src={imageUrl} alt={title} />
-        </a>
+        </Link>
       </StyledImageWrapper>
       <div>
         <Box
@@ -61,8 +54,4 @@ const Card: React.FC<ICardProps> = ({
   );
 };
 
-const mapDispatch = {
-  setActiveMovie: (id: number) => setActiveMovie(id),
-};
-
-export default connect(null, mapDispatch)(Card);
+export default Card;

@@ -82,7 +82,6 @@ const MovieForm: React.FC<IFormProps> = ({ movieData, submitCallback }) => {
       }}
       validationSchema={MovieSchema}
       onSubmit={(values) => {
-        console.log(formatGenres(values.genres));
         const formData = {
           ...movieData,
           ...values,

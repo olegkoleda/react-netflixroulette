@@ -13,6 +13,7 @@ module.exports = (env) => {
     output: {
       path: isDevelopment ? path.resolve(__dirname, "dist/dev") : path.resolve(__dirname, "dist/prod"),
       filename: isDevelopment ? "js/[name].js" : "js/[name].[hash:5].js",
+      publicPath: '/',
     },
     resolve: {
       modules: [path.resolve(__dirname, './src'), 'node_modules'],
@@ -56,6 +57,9 @@ module.exports = (env) => {
           ],
         },
       ],
+    },
+    devServer: {
+      historyApiFallback: true,
     },
     plugins: [
       new CleanWebpackPlugin(),
