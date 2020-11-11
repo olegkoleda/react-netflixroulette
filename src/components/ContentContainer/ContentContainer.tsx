@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import Header from "../Header";
 import Footer from "../Footer";
-import Main from "../Main";
 import { Box } from "atomic-layout";
 import { IMovie } from "../../interfaces/IMovie";
 import { IAppState } from "../../store/reducers/rootReducer";
-import { loadMovies } from "../../store/actions/loadMovies";
 import { getMovie } from "../../store/selectors";
 import { Route, Switch } from "react-router";
 import PageNotFound from "../PageNotFound";
