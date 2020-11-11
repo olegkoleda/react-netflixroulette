@@ -8,21 +8,21 @@ import Header from "../Header";
 import Main from "../Main";
 import { RouteComponentProps } from "../MovieDetails/MovieDetails";
 
-interface MatchParams {
+interface IMatchParams {
   query: string;
 }
-interface IDefaultPageProps extends RouteComponentProps<MatchParams> {
+interface IDefaultPageProps extends RouteComponentProps<IMatchParams> {
   movies: IMovie[];
-  loadMoviesProp: Function;
-  setSearchQueryProp: Function;
+  loadMoviesHandler: Function;
+  setSearchQueryHandler: Function;
 }
 
 const DefaultPage: React.FC<IDefaultPageProps> = (props) => {
   const searchQuery = props.match.params.query;
 
   useEffect(() => {
-    props.setSearchQueryProp(searchQuery);
-    searchQuery && props.loadMoviesProp();
+    props.setSearchQueryHandler(searchQuery);
+    searchQuery && props.loadMoviesHandler();
   }, [searchQuery]);
 
   return (
@@ -38,8 +38,8 @@ const mapStateToProps = (state: IAppState) => ({
 });
 
 const mapDispatchToProps = {
-  loadMoviesProp: () => loadMovies(),
-  setSearchQueryProp: (query: string) => setSearchQuery(query),
+  loadMoviesHandler: () => loadMovies(),
+  setSearchQueryHandler: (query: string) => setSearchQuery(query),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DefaultPage);
