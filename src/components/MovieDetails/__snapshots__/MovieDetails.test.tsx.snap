@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cards list renders correctly 1`] = `
+<div
+  className="sc-AxirZ ldZlFH"
+>
+  <div>
+    <img
+      alt=""
+      className="styledmovieDetail__StyledImage-sc-1d8hh6q-0 hbqvWI"
+      src="#"
+    />
+  </div>
+  <div>
+    <div
+      className="sc-AxjAm cCFrVs"
+    >
+      <h2
+        className="Heading-sc-15b2y3d-0 fKqoJe"
+      >
+        Default title
+      </h2>
+      <span
+        className="styledmovieDetail__StyledRating-sc-1d8hh6q-1 cExLRd"
+      >
+        5
+      </span>
+    </div>
+    <span
+      className="styledmovieDetail__StyledTagLine-sc-1d8hh6q-2 bgPwHO"
+    >
+      Default tagline
+    </span>
+    <div
+      className="sc-AxjAm HJxfs"
+    >
+      <span
+        className="styledmovieDetail__StyledAccent-sc-1d8hh6q-3 hNxqho"
+      >
+        2019
+      </span>
+      <span
+        className="styledmovieDetail__StyledAccent-sc-1d8hh6q-3 hNxqho"
+      >
+        123
+         min
+      </span>
+    </div>
+    <p>
+      default
+    </p>
+  </div>
+</div>
+`;

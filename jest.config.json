@@ -1,0 +1,9 @@
+{
+  "collectCoverage": true,
+  "collectCoverageFrom": ["src/**/*.{ts,tsx}"],
+  "transformIgnorePatterns": ["node_modules"],
+  "moduleNameMapper": {
+    "\\.(css|scss|)$": "identity-obj-proxy",
+    "\\.(jpg|jpeg|png|svg)$": "<rootDir>/src/__mocks__/fileMock.js"
+  }
+}

@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import { IParamsState } from "./paramsReducer";
 import { IMoviesState } from "./moviesReducer";
-import movies from "./moviesReducer";
-import params from "./paramsReducer";
+import movies, { initialState as initialMovieState } from "./moviesReducer";
+import params, { initialState as initialParamsState } from "./paramsReducer";
 
 export default combineReducers({
   movies,
@@ -12,4 +12,9 @@ export default combineReducers({
 export interface IAppState {
   movies: IMoviesState;
   params: IParamsState;
+}
+
+export const initialAppState: IAppState = {
+  movies: initialMovieState,
+  params: initialParamsState,
 }

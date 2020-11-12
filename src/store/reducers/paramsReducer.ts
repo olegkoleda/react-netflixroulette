@@ -8,7 +8,7 @@ export interface IParamsState {
   search: string;
 }
 
-const initialState: IParamsState = {
+export const initialState: IParamsState = {
   filter: "",
   sortBy: "release_date",
   search: '',

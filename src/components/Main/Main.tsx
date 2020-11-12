@@ -11,7 +11,7 @@ interface IMainProps {
   movies: IMovie[];
 }
 
-const mockedData = {
+export const mockedData = {
   filters: [
     { value: "", label: "All" },
     { value: "Documentary", label: "Documentary" },

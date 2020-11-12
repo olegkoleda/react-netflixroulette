@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filters component renders correctly 1`] = `
+<div
+  className="sc-AxjAm fRMFrE"
+  onChange={[Function]}
+>
+  <div
+    checked={true}
+    className="styledradioButton__StyledRadioButton-sc-1athmhv-0 bdPXCN"
+  >
+    <input
+      defaultChecked={true}
+      id="filter_All"
+      name="filter"
+      type="radio"
+      value=""
+    />
+    <label
+      htmlFor="filter_All"
+    >
+      ALL
+    </label>
+  </div>
+  <div
+    checked={false}
+    className="styledradioButton__StyledRadioButton-sc-1athmhv-0 bNqTgl"
+  >
+    <input
+      defaultChecked={false}
+      id="filter_Documentary"
+      name="filter"
+      type="radio"
+      value="Documentary"
+    />
+    <label
+      htmlFor="filter_Documentary"
+    >
+      DOCUMENTARY
+    </label>
+  </div>
+  <div
+    checked={false}
+    className="styledradioButton__StyledRadioButton-sc-1athmhv-0 bNqTgl"
+  >
+    <input
+      defaultChecked={false}
+      id="filter_Comedy"
+      name="filter"
+      type="radio"
+      value="Comedy"
+    />
+    <label
+      htmlFor="filter_Comedy"
+    >
+      COMEDY
+    </label>
+  </div>
+  <div
+    checked={false}
+    className="styledradioButton__StyledRadioButton-sc-1athmhv-0 bNqTgl"
+  >
+    <input
+      defaultChecked={false}
+      id="filter_Horror"
+      name="filter"
+      type="radio"
+      value="Horror"
+    />
+    <label
+      htmlFor="filter_Horror"
+    >
+      HORROR
+    </label>
+  </div>
+</div>
+`;

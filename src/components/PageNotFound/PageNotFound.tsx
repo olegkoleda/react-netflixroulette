@@ -9,25 +9,23 @@ import Button from "../Button";
 
 const PageNotFound = () => {
   return (
-    <>
-      <Box
-        as={StyledMain}
-        flex
-        justifyContent="center"
-        alignItems="center"
-        height={"calc(100vh - 4.5rem)"}
-        flexDirection="column"
-      >
-        <StyledLogo>
-          <Logo />
-        </StyledLogo>
-        <Heading>PAGE NOT FOUND</Heading>
-        <StyledError>404</StyledError>
-        <Link to="/">
-          <Button secondary>Back to home page</Button>
-        </Link>
-      </Box>
-    </>
+    <Box
+      as={StyledMain}
+      flex
+      justifyContent="center"
+      alignItems="center"
+      height={"calc(100vh - 4.5rem)"}
+      flexDirection="column"
+    >
+      <StyledLogo>
+        <Logo />
+      </StyledLogo>
+      <Heading>PAGE NOT FOUND</Heading>
+      <StyledError>404</StyledError>
+      <Link to="/">
+        <Button secondary>Back to home page</Button>
+      </Link>
+    </Box>
   );
 };
 
