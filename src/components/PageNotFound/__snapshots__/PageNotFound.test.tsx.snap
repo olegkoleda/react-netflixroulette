@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PageNotFound component matches the Snapshot 1`] = `
+exports[`PageNotFound component renders correctly 1`] = `
 <main
   className="styledmain__StyledMain-sc-1oh6sq-0 ihRYAc sc-AxjAm bkGhTV"
   height="calc(100vh - 4.5rem)"

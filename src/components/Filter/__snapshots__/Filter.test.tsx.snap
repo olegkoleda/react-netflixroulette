@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Filters component matches the Snapshot 1`] = `
+exports[`Filters component renders correctly 1`] = `
 <div
   className="sc-AxjAm fRMFrE"
   onChange={[Function]}

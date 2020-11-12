@@ -4,7 +4,7 @@ import { renderWithTheme } from "../../testHelpers";
 
 const callback = jest.fn();
 
-test("MovieForm component matches the Snapshot", () => {
+test("MovieForm component renders correctly", () => {
   const component = renderWithTheme(<MovieForm submitCallback={callback} />);
 
   let tree = component.toJSON();

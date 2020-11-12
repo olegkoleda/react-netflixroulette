@@ -11,7 +11,7 @@ const middleWares = [thunk];
 const mockStore = configureMockStore(middleWares);
 const store = mockStore(initialAppState);
 
-test("Sort component matches the Snapshot", () => {
+test("Sort component renders correctly", () => {
   const component = renderWithTheme(
     <Provider store={store}>
         <Sort sortValues={mockedData.sort} />

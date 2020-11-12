@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ContentContainer matches the Snapshot 1`] = `
+exports[`ContentContainer renders correctly 1`] = `
 <div
   className="sc-AxjAm beCVJq"
 >

@@ -1,21 +1,11 @@
-import React from "react";
-import configureMockStore from "redux-mock-store";
-import thunk from "redux-thunk";
-import { Provider } from "react-redux";
+// @ts-nocheck
 import Filter from "./Filter";
-import { renderWithTheme } from "../../testHelpers";
-import { initialAppState } from "../../store/reducers/rootReducer";
+import { renderWithTheme, reduxWrapper } from "../../testHelpers";
 import { mockedData } from "../Main/Main";
 
-const middleWares = [thunk];
-const mockStore = configureMockStore(middleWares);
-const store = mockStore(initialAppState);
-
-test("Filters component matches the Snapshot", () => {
+test("Filters component renders correctly", () => {
   const component = renderWithTheme(
-    <Provider store={store}>
-        <Filter filters={mockedData.filters} />
-    </Provider>
+    reduxWrapper(Filter, { filters: mockedData.filters })
   );
 
   let tree = component.toJSON();

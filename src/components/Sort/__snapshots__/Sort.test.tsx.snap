@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sort component matches the Snapshot 1`] = `
+exports[`Sort component renders correctly 1`] = `
 <div
   className="styledsort__StyledSelectWrapper-sc-13rug2s-0 cQsuLb sc-AxjAm kDfEX"
 >

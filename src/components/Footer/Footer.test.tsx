@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "./Footer";
 import { renderWithTheme } from "../../testHelpers";
 
-test("FooterSection matches the Snapshot", () => {
+test("FooterSection renders correctly", () => {
   const component = renderWithTheme(<Footer />);
 
   let tree = component.toJSON();

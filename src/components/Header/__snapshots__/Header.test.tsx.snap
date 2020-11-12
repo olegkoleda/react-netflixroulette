@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header component matches the Snapshot 1`] = `
+exports[`Header component renders correctly 1`] = `
 <div
   className="styledheader__StyledHeaderWrapper-ntr33y-2 hcnsvj sc-AxjAm feVghO"
   height="50vh"

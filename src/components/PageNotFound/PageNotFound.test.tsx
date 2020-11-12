@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import PageNotFound from "./PageNotFound";
 import { renderWithTheme } from "../../testHelpers";
 
-test("PageNotFound component matches the Snapshot", () => {
+test("PageNotFound component renders correctly", () => {
   const component = renderWithTheme(
     <Router>
       <PageNotFound />

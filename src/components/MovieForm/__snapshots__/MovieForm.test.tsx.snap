@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieForm component matches the Snapshot 1`] = `
+exports[`MovieForm component renders correctly 1`] = `
 <form
   action="#"
   onReset={[Function]}
