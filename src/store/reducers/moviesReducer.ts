@@ -38,6 +38,7 @@ export interface IMoviesState {
   isMovieUpdated: boolean;
   error: Error | null;
   activeMovie: number | null;
+  activeMovieData: IMovie | null;
   isMovieAdded: boolean;
 }
 
@@ -46,6 +47,7 @@ export const initialState: IMoviesState = {
   loading: false,
   error: null,
   activeMovie: null,
+  activeMovieData: null,
   isMovieUpdated: false,
   isMovieAdded: false,
 };
@@ -80,7 +82,7 @@ export default function moviesReducer(
       return {
         ...state,
         loading: false,
-        list: [...state.list, action.payload],
+        activeMovieData: action.payload,
       };
     case LOAD_MOVIES_ERROR:
     case LOAD_MOVIE_ERROR:

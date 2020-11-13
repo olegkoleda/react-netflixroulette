@@ -81,7 +81,7 @@ const loadMovieError = (error: Error): LoadMovieActionType => ({
   error: error,
 });
 
-export const setActiveMovie = (id: number | null): ISetActiveMovie => ({
+export const setActiveMovie = (id: number | string | null): ISetActiveMovie => ({
   type: SET_ACTIVE_MOVIE,
   payload: id,
 });

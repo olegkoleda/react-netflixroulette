@@ -38,7 +38,7 @@ interface ILoadMovieError {
 
 export interface ISetActiveMovie {
   type: typeof SET_ACTIVE_MOVIE;
-  payload: number | null;
+  payload: number | string | null;
 }
 
 
