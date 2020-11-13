@@ -9,7 +9,7 @@ import {
   StyledYear,
 } from "./styled.card";
 import CardOptions from "../CardOptions";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export interface ICardProps {
   imageUrl: string;
@@ -34,8 +34,10 @@ const Card: React.FC<ICardProps> = ({
     <Composition as={StyledCard} templateRows={"28.75rem 1fr"}>
       <StyledImageWrapper>
         <CardOptions id={id} />
-        <Link to={`/film/${id}`}>
-          <StyledImage src={imageUrl} alt={title} />
+        <Link href={`/film/${id}`}>
+          <a>
+            <StyledImage src={imageUrl} alt={title} />
+          </a>
         </Link>
       </StyledImageWrapper>
       <div>

@@ -4,9 +4,12 @@ import {
   StyledBackground,
   StyledHeaderImage,
   StyledHeaderWrapper,
-} from "./styled.header";
+} from "../Header/styled.header";
 import { Box } from "atomic-layout";
 import Logo from "../Logo";
+import Heading from "../Heading";
+import AddMovie from "../AddMovie";
+import Search from "../Search";
 import MovieDetails from "../MovieDetails";
 import headerImgSrc from "../../assets/header-image.jpg";
 import { IMovie } from "../../interfaces/IMovie";
@@ -14,7 +17,7 @@ import Button from "../Button";
 import { getMovie } from "../../store/selectors";
 import { IAppState } from "../../store/reducers/rootReducer";
 import { setActiveMovie } from "../../store/actions/loadMovies";
-import Link from "next/link";
+
 
 interface IHeaderProps {
   movie: IMovie;
@@ -26,7 +29,7 @@ const HEADER_HEIGHT = {
   CLOSED: 50,
 };
 
-const Header: React.FC<IHeaderProps> = ({ movie, changeView }) => {
+const HeaderSearch: React.FC<IHeaderProps> = ({ movie, changeView }) => {
   const [headerHeight, setHeaderHeight] = useState(HEADER_HEIGHT.CLOSED);
 
   let height = useMemo(() => `${headerHeight}vh`, [headerHeight]);
@@ -65,13 +68,21 @@ const Header: React.FC<IHeaderProps> = ({ movie, changeView }) => {
         <h1>
           <Logo />
         </h1>
-        <Link href={"/"}>
-          <a>
-            <Button onClick={closeDetails}>Back to search</Button>
-          </a>
-        </Link>
+        <AddMovie />
       </Box>
-      <MovieDetails />
+      <Box
+        flex
+        flexDirection={"row"}
+        alignItems={"center"}
+        marginHorizontal={"6rem"}
+        height={"100%"}
+        marginTop={"-3rem"}
+      >
+        <Box width={"100%"}>
+          <Heading as="h2">Find your movie</Heading>
+          <Search />
+        </Box>
+      </Box>
     </Box>
   );
 };
@@ -84,4 +95,4 @@ const mapDispatch = {
   changeView: (id: number | null) => setActiveMovie(id),
 };
 
-export default connect(mapState, mapDispatch)(Header);
+export default connect(mapState, mapDispatch)(HeaderSearch);

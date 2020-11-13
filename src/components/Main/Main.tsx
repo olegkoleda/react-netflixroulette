@@ -8,7 +8,7 @@ import { IMovie } from "../../interfaces/IMovie";
 import Heading from "../Heading";
 
 interface IMainProps {
-  movies: IMovie[];
+  movies?: IMovie[];
 }
 
 export const mockedData = {
@@ -32,7 +32,7 @@ const controlsAreasMobile = `
   sort
 `;
 
-const Main: React.FC<IMainProps> = ({ movies }) => (
+const Main: React.FC<IMainProps> = ({ movies = [] }) => (
   <Box as={StyledMain} paddingHorizontal={"1rem"} paddingHorizontalMd={"3rem"}>
     <Composition areas={controlsAreasMobile} areasMd={controlsAreasMd}>
       {(Areas) => (
@@ -56,7 +56,7 @@ const Main: React.FC<IMainProps> = ({ movies }) => (
       </>
     )) || (
       <Box flex justifyContent={"center"} marginTop={"2rem"}>
-        <Heading >No movie found</Heading>
+        <Heading>No movie found</Heading>
       </Box>
     )}
   </Box>
